@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Search, ShoppingCart, User, ChevronDown, X,
+  Search, ShoppingCart, User, ChevronDown, X, Wrench,
   Monitor, Battery, Cable, Camera, Package, Cpu,
   Smartphone, Star, RotateCcw, Menu,
 } from "lucide-react";
@@ -364,7 +364,7 @@ export function Header({ isLoggedIn = false }: HeaderProps) {
             <div className="border-t border-white/10 pt-3 mt-2">
               <Link href="/service"
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer">
-                <Zap className="w-4 h-4 text-[#EF4444]" />
+                <Wrench className="w-4 h-4 text-[#EF4444]" />
                 Ремонт / Сервис
               </Link>
             </div>
