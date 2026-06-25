@@ -13,7 +13,7 @@ import { cn, formatPrice, matchesSearch } from "@/lib/utils";
 type SortKey = "default" | "price_asc" | "price_desc";
 type ConditionFilter = "all" | "new" | "used";
 
-const PHONES = PRODUCTS.filter(p => p.productType === "smartphone");
+const PHONES = PRODUCTS.filter(p => p.category === "smartphone");
 const PRICE_MIN = 0;
 const PRICE_MAX = 20_000_000;
 

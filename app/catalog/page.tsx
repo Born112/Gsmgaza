@@ -15,7 +15,7 @@ import { cn, formatPrice, matchesSearch } from "@/lib/utils";
 
 type SortKey = "default" | "price_asc" | "price_desc" | "popular";
 
-const PARTS = PRODUCTS.filter(p => p.productType === "part");
+const PARTS = PRODUCTS.filter(p => p.category === "part");
 const PRICE_MIN = 0;
 const PRICE_MAX = 2_000_000;
 
