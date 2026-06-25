@@ -41,15 +41,15 @@ export default function ServicePage() {
       {/* Header */}
       <div className="mb-10">
         <p className="text-[#EF4444] text-sm font-medium uppercase tracking-widest mb-2">{t("serviceCenter")}</p>
-        <h1 className="font-heading text-4xl font-bold text-white">{t("repairSmartphones")}</h1>
-        <p className="text-slate-400 mt-2 max-w-xl">{t("repairDesc")}</p>
+        <h1 className="font-heading text-4xl font-bold text-[var(--ui-text)]">{t("repairSmartphones")}</h1>
+        <p className="text-[var(--ui-text-3)] mt-2 max-w-xl">{t("repairDesc")}</p>
       </div>
 
       <div className="grid lg:grid-cols-5 gap-8">
         {/* Calculator */}
         <div className="lg:col-span-3">
-          <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
-            <h2 className="font-heading text-xl font-semibold text-white mb-6">{t("repairCalc")}</h2>
+          <div className="bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-2xl p-6">
+            <h2 className="font-heading text-xl font-semibold text-[var(--ui-text)] mb-6">{t("repairCalc")}</h2>
 
             {/* Step indicator */}
             <div className="flex items-center gap-2 mb-8">
@@ -59,16 +59,16 @@ export default function ServicePage() {
                     "w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-all duration-200",
                     step > s.n ? "bg-[#22C55E] text-white" :
                     step === s.n ? "bg-[#DC2626] text-white" :
-                    "bg-white/10 text-slate-500"
+                    "bg-[var(--ui-hover-2)] text-[var(--ui-text-4)]"
                   )}>
                     {step > s.n ? <CheckCircle2 className="w-4 h-4" /> : s.n}
                   </div>
                   <span className={cn(
                     "text-xs font-medium hidden sm:block",
-                    step >= s.n ? "text-slate-200" : "text-slate-600"
+                    step >= s.n ? "text-[var(--ui-text)]" : "text-[var(--ui-text-5)]"
                   )}>{t(s.labelKey)}</span>
                   {i < STEPS.length - 1 && (
-                    <div className={cn("flex-1 h-px mx-2 transition-colors duration-200", step > s.n ? "bg-[#22C55E]/40" : "bg-white/10")} />
+                    <div className={cn("flex-1 h-px mx-2 transition-colors duration-200", step > s.n ? "bg-[#22C55E]/40" : "bg-[var(--ui-hover-2)]")} />
                   )}
                 </div>
               ))}
@@ -77,7 +77,7 @@ export default function ServicePage() {
             {/* Step 1 — Brand */}
             {step === 1 && (
               <div className="space-y-3">
-                <p className="text-sm text-slate-400 mb-4">{t("chooseBrand")}</p>
+                <p className="text-sm text-[var(--ui-text-3)] mb-4">{t("chooseBrand")}</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {REPAIR_CALCULATOR.brands.map(b => (
                     <button
@@ -87,7 +87,7 @@ export default function ServicePage() {
                         "px-4 py-3 rounded-xl border text-sm font-medium transition-all duration-150 cursor-pointer text-left",
                         brand === b
                           ? "border-[#DC2626] bg-[#DC2626]/15 text-[#EF4444]"
-                          : "border-white/10 text-slate-300 hover:border-white/30 hover:bg-white/5"
+                          : "border-[var(--ui-border)] text-[var(--ui-text-2)] hover:border-[var(--ui-border-2)] hover:bg-[var(--ui-hover)]"
                       )}
                     >
                       {b}
@@ -101,10 +101,10 @@ export default function ServicePage() {
             {step === 2 && (
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-4">
-                  <button onClick={() => setStep(1)} className="text-xs text-slate-500 hover:text-slate-300 cursor-pointer transition-colors">{t("back")}</button>
-                  <span className="text-sm text-slate-400">{t("stepBrand")}: <span className="text-[#EF4444] font-medium">{brand}</span></span>
+                  <button onClick={() => setStep(1)} className="text-xs text-[var(--ui-text-4)] hover:text-[var(--ui-text-2)] cursor-pointer transition-colors">{t("back")}</button>
+                  <span className="text-sm text-[var(--ui-text-3)]">{t("stepBrand")}: <span className="text-[#EF4444] font-medium">{brand}</span></span>
                 </div>
-                <p className="text-sm text-slate-400 mb-3">{t("chooseModel")}</p>
+                <p className="text-sm text-[var(--ui-text-3)] mb-3">{t("chooseModel")}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-72 overflow-y-auto pr-1">
                   {(REPAIR_CALCULATOR.models[brand] ?? []).map(m => (
                     <button
@@ -114,7 +114,7 @@ export default function ServicePage() {
                         "px-4 py-2.5 rounded-lg border text-sm transition-all duration-150 cursor-pointer text-left",
                         model === m
                           ? "border-[#DC2626] bg-[#DC2626]/15 text-[#EF4444]"
-                          : "border-white/10 text-slate-300 hover:border-white/30 hover:bg-white/5"
+                          : "border-[var(--ui-border)] text-[var(--ui-text-2)] hover:border-[var(--ui-border-2)] hover:bg-[var(--ui-hover)]"
                       )}
                     >
                       {m}
@@ -128,10 +128,10 @@ export default function ServicePage() {
             {step === 3 && (
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-4">
-                  <button onClick={() => setStep(2)} className="text-xs text-slate-500 hover:text-slate-300 cursor-pointer transition-colors">{t("back")}</button>
-                  <span className="text-sm text-slate-400">{brand} <ChevronRight className="inline w-3 h-3 text-slate-600" /> {model}</span>
+                  <button onClick={() => setStep(2)} className="text-xs text-[var(--ui-text-4)] hover:text-[var(--ui-text-2)] cursor-pointer transition-colors">{t("back")}</button>
+                  <span className="text-sm text-[var(--ui-text-3)]">{brand} <ChevronRight className="inline w-3 h-3 text-[var(--ui-text-5)]" /> {model}</span>
                 </div>
-                <p className="text-sm text-slate-400 mb-3">{t("chooseIssue")}</p>
+                <p className="text-sm text-[var(--ui-text-3)] mb-3">{t("chooseIssue")}</p>
                 <div className="space-y-2">
                   {REPAIR_CALCULATOR.issues.map(iss => (
                     <button
@@ -141,11 +141,11 @@ export default function ServicePage() {
                         "w-full flex items-center justify-between px-4 py-3 rounded-xl border text-sm transition-all duration-150 cursor-pointer",
                         issue === iss.id
                           ? "border-[#DC2626] bg-[#DC2626]/15 text-[#EF4444]"
-                          : "border-white/10 text-slate-300 hover:border-white/30 hover:bg-white/5"
+                          : "border-[var(--ui-border)] text-[var(--ui-text-2)] hover:border-[var(--ui-border-2)] hover:bg-[var(--ui-hover)]"
                       )}
                     >
                       <span>{iss.name}</span>
-                      <span className="text-xs text-slate-500">{t("from").toLowerCase()} {formatPrice(iss.basePrice)}</span>
+                      <span className="text-xs text-[var(--ui-text-4)]">{t("from").toLowerCase()} {formatPrice(iss.basePrice)}</span>
                     </button>
                   ))}
                 </div>
@@ -156,32 +156,32 @@ export default function ServicePage() {
             {step === 4 && selectedIssue && (
               <div>
                 <div className="flex items-center gap-2 mb-6">
-                  <button onClick={() => setStep(3)} className="text-xs text-slate-500 hover:text-slate-300 cursor-pointer transition-colors">{t("back")}</button>
+                  <button onClick={() => setStep(3)} className="text-xs text-[var(--ui-text-4)] hover:text-[var(--ui-text-2)] cursor-pointer transition-colors">{t("back")}</button>
                 </div>
-                <div className="bg-gradient-to-br from-[#DC2626]/10 to-[#141414] border border-[#DC2626]/30 rounded-xl p-6 mb-4">
+                <div className="bg-gradient-to-br from-[#DC2626]/10 to-[var(--ui-surface)] border border-[#DC2626]/30 rounded-xl p-6 mb-4">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <div className="text-xs text-slate-500 mb-1">{brand} {model}</div>
-                      <div className="font-medium text-white">{selectedIssue.name}</div>
+                      <div className="text-xs text-[var(--ui-text-4)] mb-1">{brand} {model}</div>
+                      <div className="font-medium text-[var(--ui-text)]">{selectedIssue.name}</div>
                     </div>
                     <CheckCircle2 className="w-6 h-6 text-[#22C55E] shrink-0 mt-0.5" />
                   </div>
-                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[var(--ui-border)]">
                     <div>
-                      <div className="text-xs text-slate-500 mb-1">{t("costFrom")}</div>
+                      <div className="text-xs text-[var(--ui-text-4)] mb-1">{t("costFrom")}</div>
                       <div className="text-3xl font-heading font-bold text-[#EF4444]">
                         {formatPrice(estimatedPrice)}
                       </div>
                     </div>
                     <div>
-                      <div className="text-xs text-slate-500 mb-1">{t("repairTermLabel")}</div>
-                      <div className="text-xl font-heading font-bold text-white">
+                      <div className="text-xs text-[var(--ui-text-4)] mb-1">{t("repairTermLabel")}</div>
+                      <div className="text-xl font-heading font-bold text-[var(--ui-text)]">
                         ~{selectedIssue.days} {selectedIssue.days === 1 ? t("dayOne") : t("dayFew")}
                       </div>
                     </div>
                   </div>
                 </div>
-                <p className="text-xs text-slate-500">{t("exactPrice")}</p>
+                <p className="text-xs text-[var(--ui-text-4)]">{t("exactPrice")}</p>
                 <button
                   onClick={() => setStep(1)}
                   className="mt-3 text-sm text-[#EF4444] hover:underline cursor-pointer"
@@ -195,17 +195,17 @@ export default function ServicePage() {
 
         {/* Booking form */}
         <div className="lg:col-span-2" id="booking">
-          <div className="bg-[#141414] border border-white/10 rounded-2xl p-6 sticky top-20">
-            <h2 className="font-heading text-xl font-semibold text-white mb-1">{t("bookRepair")}</h2>
-            <p className="text-sm text-slate-400 mb-6">{t("bookingDesc")}</p>
+          <div className="bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-2xl p-6 sticky top-20">
+            <h2 className="font-heading text-xl font-semibold text-[var(--ui-text)] mb-1">{t("bookRepair")}</h2>
+            <p className="text-sm text-[var(--ui-text-3)] mb-6">{t("bookingDesc")}</p>
 
             {submitted ? (
               <div className="flex flex-col items-center text-center py-8">
                 <div className="w-16 h-16 bg-[#22C55E]/15 rounded-full flex items-center justify-center mb-4">
                   <CheckCircle2 className="w-8 h-8 text-[#22C55E]" />
                 </div>
-                <h3 className="font-heading font-semibold text-white text-lg mb-2">{t("submittedTitle")}</h3>
-                <p className="text-sm text-slate-400">{t("submittedMsg")}</p>
+                <h3 className="font-heading font-semibold text-[var(--ui-text)] text-lg mb-2">{t("submittedTitle")}</h3>
+                <p className="text-sm text-[var(--ui-text-3)]">{t("submittedMsg")}</p>
                 <button onClick={() => setSubmitted(false)} className="mt-4 text-sm text-[#EF4444] hover:underline cursor-pointer">
                   {t("newRequest")}
                 </button>
@@ -213,24 +213,24 @@ export default function ServicePage() {
             ) : (
               <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
                 <div className="space-y-1.5">
-                  <label className="text-sm text-slate-400" htmlFor="name">{t("yourName")}</label>
+                  <label className="text-sm text-[var(--ui-text-3)]" htmlFor="name">{t("yourName")}</label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--ui-text-4)] pointer-events-none" />
                     <Input
                       id="name"
                       required
                       placeholder="Алексей Иванов"
                       value={formName}
                       onChange={e => setFormName(e.target.value)}
-                      className="pl-9 bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#DC2626]"
+                      className="pl-9 bg-[var(--ui-hover)] border-[var(--ui-border)] text-[var(--ui-text)] placeholder:text-[var(--ui-text-5)] focus:border-[#DC2626]"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-sm text-slate-400" htmlFor="phone">{t("phoneNumber")}</label>
+                  <label className="text-sm text-[var(--ui-text-3)]" htmlFor="phone">{t("phoneNumber")}</label>
                   <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--ui-text-4)] pointer-events-none" />
                     <Input
                       id="phone"
                       required
@@ -238,38 +238,38 @@ export default function ServicePage() {
                       placeholder="+7 (999) 123-45-67"
                       value={formPhone}
                       onChange={e => setFormPhone(e.target.value)}
-                      className="pl-9 bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#DC2626]"
+                      className="pl-9 bg-[var(--ui-hover)] border-[var(--ui-border)] text-[var(--ui-text)] placeholder:text-[var(--ui-text-5)] focus:border-[#DC2626]"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1.5">
-                    <label className="text-sm text-slate-400" htmlFor="date">{t("dateLabel")}</label>
+                    <label className="text-sm text-[var(--ui-text-3)]" htmlFor="date">{t("dateLabel")}</label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--ui-text-4)] pointer-events-none" />
                       <Input
                         id="date"
                         type="date"
                         required
                         value={formDate}
                         onChange={e => setFormDate(e.target.value)}
-                        className="pl-9 bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626] cursor-pointer"
+                        className="pl-9 bg-[var(--ui-hover)] border-[var(--ui-border)] text-[var(--ui-text)] focus:border-[#DC2626] cursor-pointer"
                       />
                     </div>
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-sm text-slate-400" htmlFor="time">{t("timeLabel")}</label>
+                    <label className="text-sm text-[var(--ui-text-3)]" htmlFor="time">{t("timeLabel")}</label>
                     <select
                       id="time"
                       required
                       value={formTime}
                       onChange={e => setFormTime(e.target.value)}
-                      className="w-full h-10 rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 focus:border-[#DC2626] focus:outline-none cursor-pointer"
+                      className="w-full h-10 rounded-md bg-[var(--ui-hover)] border border-[var(--ui-border)] text-[var(--ui-text)] text-sm px-3 focus:border-[#DC2626] focus:outline-none cursor-pointer"
                     >
                       <option value="">{t("chooseTime")}</option>
                       {["10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"].map(tm => (
-                        <option key={tm} value={tm} className="bg-[#141414]">{tm}</option>
+                        <option key={tm} value={tm} className="bg-[var(--ui-surface)]">{tm}</option>
                       ))}
                     </select>
                   </div>
@@ -278,7 +278,7 @@ export default function ServicePage() {
                 {brand && model && issue && (
                   <div className="flex items-center gap-2 p-3 bg-[#DC2626]/10 border border-[#DC2626]/20 rounded-lg">
                     <Wrench className="w-4 h-4 text-[#EF4444] shrink-0" />
-                    <span className="text-xs text-slate-300">{brand} {model} — {selectedIssue?.name}</span>
+                    <span className="text-xs text-[var(--ui-text-2)]">{brand} {model} — {selectedIssue?.name}</span>
                   </div>
                 )}
 
@@ -288,7 +288,7 @@ export default function ServicePage() {
                 >
                   {t("bookBtn")}
                 </Button>
-                <p className="text-xs text-center text-slate-600">{t("privacyConsent")}</p>
+                <p className="text-xs text-center text-[var(--ui-text-5)]">{t("privacyConsent")}</p>
               </form>
             )}
           </div>

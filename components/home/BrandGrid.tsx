@@ -21,11 +21,11 @@ export function BrandGrid() {
       <div className="flex items-end justify-between mb-8">
         <div>
           <p className="text-[#EF4444] text-sm font-medium uppercase tracking-widest mb-2">{t("popularBrands")}</p>
-          <h2 className="font-heading text-3xl font-bold text-white">{t("fastBrandChoice")}</h2>
+          <h2 className="font-heading text-3xl font-bold text-[var(--ui-text)]">{t("fastBrandChoice")}</h2>
         </div>
         <Link
           href="/parts"
-          className="text-sm text-slate-400 hover:text-[#EF4444] transition-colors duration-150 cursor-pointer hidden sm:block"
+          className="text-sm text-[var(--ui-text-3)] hover:text-[#EF4444] transition-colors duration-150 cursor-pointer hidden sm:block"
         >
           {t("allGoods")}
         </Link>
@@ -36,7 +36,7 @@ export function BrandGrid() {
           <Link
             key={brand.id}
             href={`/parts?brand=${brand.id}`}
-            className="group flex flex-col items-center justify-center gap-3 p-5 bg-[#141414] border border-white/10 rounded-xl hover:border-[#DC2626]/50 hover:bg-[#141414] transition-all duration-200 cursor-pointer"
+            className="group flex flex-col items-center justify-center gap-3 p-5 bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-xl hover:border-[#DC2626]/50 hover:bg-[var(--ui-surface)] transition-all duration-200 cursor-pointer"
           >
             <div className="w-12 h-12 flex items-center justify-center">
               <svg
@@ -47,7 +47,7 @@ export function BrandGrid() {
                 <path d={BRAND_SVG_PATHS[brand.id] ?? BRAND_SVG_PATHS.samsung} />
               </svg>
             </div>
-            <span className="text-sm font-medium text-slate-400 group-hover:text-white transition-colors duration-200">
+            <span className="text-sm font-medium text-[var(--ui-text-3)] group-hover:text-[var(--ui-text)] transition-colors duration-200">
               {brand.name}
             </span>
           </Link>

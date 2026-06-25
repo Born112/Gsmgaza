@@ -49,40 +49,108 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* GSMBaza — Black/Red/White theme */
+/* ─── GSMBaza theme tokens ────────────────────────────────────────────────
+   :root = LIGHT theme (default).  .dark = DARK theme.
+   Brand red (#DC2626) and status colors (green/amber) stay constant in both.
+   The `--ui-*` scale powers the custom components (replaces the old hardcoded
+   #0A0A0A / #141414 / #1C1C1C / white / slate-* values). */
 :root {
+  --background: oklch(0.985 0.002 247);      /* #F7F8FA soft white */
+  --foreground: oklch(0.21 0.03 265);        /* #0F172A slate-900 */
+  --card: oklch(1 0 0);                       /* #FFFFFF */
+  --card-foreground: oklch(0.21 0.03 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.03 265);
+  --primary: oklch(0.55 0.22 27);            /* #DC2626 red */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.968 0.004 247);       /* slate-100 */
+  --secondary-foreground: oklch(0.21 0.03 265);
+  --muted: oklch(0.968 0.004 247);
+  --muted-foreground: oklch(0.55 0.02 257);  /* slate-500 */
+  --accent: oklch(0.55 0.22 27);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.22 27);
+  --border: oklch(0.922 0.004 247);          /* slate-200 */
+  --input: oklch(0.922 0.004 247);
+  --ring: oklch(0.55 0.22 27);
+  --chart-1: oklch(0.55 0.22 27);
+  --chart-2: oklch(0.6 0.02 257);
+  --chart-3: oklch(0.7 0.02 257);
+  --chart-4: oklch(0.8 0.02 257);
+  --chart-5: oklch(0.88 0.01 257);
+  --radius: 0.75rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.21 0.03 265);
+  --sidebar-primary: oklch(0.55 0.22 27);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.968 0.004 247);
+  --sidebar-accent-foreground: oklch(0.21 0.03 265);
+  --sidebar-border: oklch(0.922 0.004 247);
+  --sidebar-ring: oklch(0.55 0.22 27);
+
+  /* UI neutral scale — LIGHT */
+  --ui-bg: #F7F8FA;
+  --ui-surface: #FFFFFF;
+  --ui-surface-2: #F1F5F9;
+  --ui-text: #0F172A;        /* primary  (was text-white / slate-200) */
+  --ui-text-2: #334155;      /* secondary(was slate-300) */
+  --ui-text-3: #475569;      /* muted    (was slate-400) */
+  --ui-text-4: #64748B;      /* faint    (was slate-500) */
+  --ui-text-5: #94A3B8;      /* faintest (was slate-600) */
+  --ui-hover: rgba(15, 23, 42, 0.045);
+  --ui-hover-2: rgba(15, 23, 42, 0.08);
+  --ui-border: rgba(15, 23, 42, 0.10);
+  --ui-border-2: rgba(15, 23, 42, 0.16);
+  --ui-scrollbar: rgba(15, 23, 42, 0.22);
+}
+
+.dark {
   --background: oklch(0.07 0 0);             /* #0A0A0A true black */
-  --foreground: oklch(0.98 0 0);             /* #FFFFFF */
-  --card: oklch(0.11 0 0);                   /* #141414 */
+  --foreground: oklch(0.98 0 0);            /* #FFFFFF */
+  --card: oklch(0.11 0 0);                  /* #141414 */
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.11 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.5 0.22 27);             /* #DC2626 red */
+  --primary: oklch(0.55 0.22 27);           /* #DC2626 red */
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.15 0 0);              /* #1C1C1C */
+  --secondary: oklch(0.15 0 0);             /* #1C1C1C */
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.65 0 0);       /* #A1A1AA */
-  --accent: oklch(0.5 0.22 27);
+  --muted-foreground: oklch(0.65 0 0);      /* #A1A1AA */
+  --accent: oklch(0.55 0.22 27);
   --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.5 0.22 27);
-  --border: oklch(0.2 0 0);                  /* #2A2A2A */
+  --destructive: oklch(0.55 0.22 27);
+  --border: oklch(0.2 0 0);                 /* #2A2A2A */
   --input: oklch(0.15 0 0);
-  --ring: oklch(0.5 0.22 27);
-  --chart-1: oklch(0.5 0.22 27);
+  --ring: oklch(0.55 0.22 27);
+  --chart-1: oklch(0.55 0.22 27);
   --chart-2: oklch(0.65 0 0);
   --chart-3: oklch(0.45 0 0);
   --chart-4: oklch(0.35 0 0);
   --chart-5: oklch(0.25 0 0);
-  --radius: 0.75rem;
   --sidebar: oklch(0.11 0 0);
   --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.5 0.22 27);
+  --sidebar-primary: oklch(0.55 0.22 27);
   --sidebar-primary-foreground: oklch(0.98 0 0);
   --sidebar-accent: oklch(0.15 0 0);
   --sidebar-accent-foreground: oklch(0.98 0 0);
   --sidebar-border: oklch(0.2 0 0);
-  --sidebar-ring: oklch(0.5 0.22 27);
+  --sidebar-ring: oklch(0.55 0.22 27);
+
+  /* UI neutral scale — DARK */
+  --ui-bg: #0A0A0A;
+  --ui-surface: #141414;
+  --ui-surface-2: #1C1C1C;
+  --ui-text: #FFFFFF;
+  --ui-text-2: #CBD5E1;
+  --ui-text-3: #94A3B8;
+  --ui-text-4: #64748B;
+  --ui-text-5: #475569;
+  --ui-hover: rgba(255, 255, 255, 0.05);
+  --ui-hover-2: rgba(255, 255, 255, 0.10);
+  --ui-border: rgba(255, 255, 255, 0.10);
+  --ui-border-2: rgba(255, 255, 255, 0.22);
+  --ui-scrollbar: rgba(255, 255, 255, 0.16);
 }
 
 @layer base {
@@ -99,7 +167,7 @@
   html {
     @apply font-sans;
     scrollbar-width: thin;
-    scrollbar-color: oklch(0.2 0 0) transparent;
+    scrollbar-color: var(--ui-scrollbar) transparent;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Rubik', system-ui, sans-serif;
@@ -108,8 +176,18 @@
   }
   ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: oklch(0.22 0.08 27); border-radius: 3px; }
-  :focus-visible { outline: 2px solid oklch(0.5 0.22 27); outline-offset: 2px; }
+  ::-webkit-scrollbar-thumb { background: var(--ui-scrollbar); border-radius: 3px; }
+  :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+  /* Smooth color cross-fade when switching theme. Elements that define their
+     own transition (Tailwind transition-* utilities) win by specificity; this
+     only animates the rest. */
+  @media (prefers-reduced-motion: no-preference) {
+    *, *::before, *::after {
+      transition: background-color 0.3s ease, border-color 0.3s ease,
+                  color 0.25s ease, fill 0.3s ease;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;

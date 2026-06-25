@@ -50,7 +50,7 @@ export function PriceRangeFilter({ min, max, value, onChange }: Props) {
     <div ref={wrapRef} className="pb-4 space-y-4" onMouseDown={e => e.stopPropagation()}>
       <div className="flex items-center gap-2">
         <div className="flex-1">
-          <label className="text-[10px] text-slate-600 uppercase tracking-widest block mb-1">{t("from")}</label>
+          <label className="text-[10px] text-[var(--ui-text-5)] uppercase tracking-widest block mb-1">{t("from")}</label>
           <input
             type="text"
             inputMode="numeric"
@@ -58,12 +58,12 @@ export function PriceRangeFilter({ min, max, value, onChange }: Props) {
             onChange={e => setFromStr(e.target.value)}
             onBlur={commitFrom}
             onKeyDown={e => e.key === "Enter" && commitFrom()}
-            className="w-full h-8 px-2.5 rounded-lg bg-[#0A0A0A] border border-white/10 text-sm text-slate-200 focus:outline-none focus:border-[#DC2626] transition-colors"
+            className="w-full h-8 px-2.5 rounded-lg bg-[var(--ui-bg)] border border-[var(--ui-border)] text-sm text-[var(--ui-text)] focus:outline-none focus:border-[#DC2626] transition-colors"
           />
         </div>
-        <span className="text-slate-600 mt-5">—</span>
+        <span className="text-[var(--ui-text-5)] mt-5">—</span>
         <div className="flex-1">
-          <label className="text-[10px] text-slate-600 uppercase tracking-widest block mb-1">{t("to")}</label>
+          <label className="text-[10px] text-[var(--ui-text-5)] uppercase tracking-widest block mb-1">{t("to")}</label>
           <input
             type="text"
             inputMode="numeric"
@@ -71,7 +71,7 @@ export function PriceRangeFilter({ min, max, value, onChange }: Props) {
             onChange={e => setToStr(e.target.value)}
             onBlur={commitTo}
             onKeyDown={e => e.key === "Enter" && commitTo()}
-            className="w-full h-8 px-2.5 rounded-lg bg-[#0A0A0A] border border-white/10 text-sm text-slate-200 focus:outline-none focus:border-[#DC2626] transition-colors"
+            className="w-full h-8 px-2.5 rounded-lg bg-[var(--ui-bg)] border border-[var(--ui-border)] text-sm text-[var(--ui-text)] focus:outline-none focus:border-[#DC2626] transition-colors"
           />
         </div>
       </div>
@@ -90,7 +90,7 @@ export function PriceRangeFilter({ min, max, value, onChange }: Props) {
         className="cursor-pointer"
       />
 
-      <div className="flex justify-between text-[11px] text-slate-600">
+      <div className="flex justify-between text-[11px] text-[var(--ui-text-5)]">
         <span>{min.toLocaleString("ru-RU")} сум</span>
         <span>{max.toLocaleString("ru-RU")} сум</span>
       </div>

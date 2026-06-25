@@ -7,7 +7,7 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <BrandGrid />
-      <div className="h-px bg-white/5 max-w-7xl mx-auto" />
+      <div className="h-px bg-[var(--ui-hover)] max-w-7xl mx-auto" />
       <RepairServices />
     </main>
   );

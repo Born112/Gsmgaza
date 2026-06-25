@@ -30,24 +30,24 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-      <nav className="flex items-center gap-2 text-sm text-slate-500 mb-6">
-        <Link href="/" className="hover:text-slate-300 transition-colors cursor-pointer">GSMBaza</Link>
+      <nav className="flex items-center gap-2 text-sm text-[var(--ui-text-4)] mb-6">
+        <Link href="/" className="hover:text-[var(--ui-text-2)] transition-colors cursor-pointer">GSMBaza</Link>
         <span>/</span>
-        <Link href="/smartphones" className="hover:text-slate-300 transition-colors cursor-pointer">{t("smartphones")}</Link>
+        <Link href="/smartphones" className="hover:text-[var(--ui-text-2)] transition-colors cursor-pointer">{t("smartphones")}</Link>
         {isUsed && (
           <><span>/</span>
-          <Link href="/smartphones?condition=used" className="hover:text-slate-300 transition-colors cursor-pointer">{t("usedBadge")}</Link></>
+          <Link href="/smartphones?condition=used" className="hover:text-[var(--ui-text-2)] transition-colors cursor-pointer">{t("usedBadge")}</Link></>
         )}
         <span>/</span>
-        <span className="text-slate-400 truncate max-w-[200px]">{product.name}</span>
+        <span className="text-[var(--ui-text-3)] truncate max-w-[200px]">{product.name}</span>
       </nav>
 
       <div className="grid lg:grid-cols-2 gap-10">
         <div>
-          <div className="aspect-[3/4] max-h-[520px] bg-[#141414] border border-white/10 rounded-2xl flex items-center justify-center overflow-hidden relative">
-            <div className="flex flex-col items-center gap-3 text-slate-600">
+          <div className="aspect-[3/4] max-h-[520px] bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-2xl flex items-center justify-center overflow-hidden relative">
+            <div className="flex flex-col items-center gap-3 text-[var(--ui-text-5)]">
               <div className="w-20 h-32 bg-[#DC2626]/10 rounded-2xl border-2 border-[#DC2626]/20 flex items-center justify-center">
-                <Smartphone className="w-10 h-10 text-[#1C1C1C]" />
+                <Smartphone className="w-10 h-10 text-[var(--ui-text-5)]" />
               </div>
               <span className="text-xs">{product.sku}</span>
             </div>
@@ -72,12 +72,12 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
             )}
           </div>
 
-          <h1 className="font-heading text-2xl sm:text-3xl font-bold text-white leading-tight mb-4">
+          <h1 className="font-heading text-2xl sm:text-3xl font-bold text-[var(--ui-text)] leading-tight mb-4">
             {product.name}
           </h1>
 
           <div className="flex items-end gap-3 mb-5">
-            <span className="font-heading text-4xl font-bold text-white">{formatPrice(product.price)}</span>
+            <span className="font-heading text-4xl font-bold text-[var(--ui-text)]">{formatPrice(product.price)}</span>
           </div>
 
           <div className="flex items-center gap-2 mb-5">
@@ -94,17 +94,17 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
                 <Info className="w-4 h-4 text-[#F59E0B]" />
                 <span className="text-sm font-semibold text-[#F59E0B]">{t("condition")}</span>
               </div>
-              <p className="text-sm text-slate-300 leading-relaxed">{product.visualCondition}</p>
+              <p className="text-sm text-[var(--ui-text-2)] leading-relaxed">{product.visualCondition}</p>
             </div>
           )}
 
           <AddToCartButton product={product} disabled={!product.inStock} />
 
           {isUsed && (
-            <div className="mt-4 p-3 bg-white/5 border border-white/10 rounded-xl">
+            <div className="mt-4 p-3 bg-[var(--ui-hover)] border border-[var(--ui-border)] rounded-xl">
               <div className="flex items-start gap-2">
                 <Shield className="w-4 h-4 text-[#EF4444] shrink-0 mt-0.5" />
-                <p className="text-xs text-slate-400">{t("usedDiagnostic")}</p>
+                <p className="text-xs text-[var(--ui-text-3)]">{t("usedDiagnostic")}</p>
               </div>
             </div>
           )}
@@ -115,9 +115,9 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
               { icon: Truck,   text: t("delivery") },
               { icon: Battery, text: isUsed ? t("batteryUsed") : t("batteryNew") },
             ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex flex-col items-center gap-1.5 p-3 bg-white/5 border border-white/10 rounded-xl text-center">
+              <div key={text} className="flex flex-col items-center gap-1.5 p-3 bg-[var(--ui-hover)] border border-[var(--ui-border)] rounded-xl text-center">
                 <Icon className="w-4 h-4 text-[#EF4444]" />
-                <span className="text-[11px] text-slate-400 whitespace-pre-line leading-snug">{text}</span>
+                <span className="text-[11px] text-[var(--ui-text-3)] whitespace-pre-line leading-snug">{text}</span>
               </div>
             ))}
           </div>
@@ -125,17 +125,17 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mt-12">
-        <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
-          <h2 className="font-heading font-semibold text-white text-lg mb-3">{t("description")}</h2>
-          <p className="text-sm text-slate-400 leading-relaxed">{product.description}</p>
+        <div className="bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-2xl p-6">
+          <h2 className="font-heading font-semibold text-[var(--ui-text)] text-lg mb-3">{t("description")}</h2>
+          <p className="text-sm text-[var(--ui-text-3)] leading-relaxed">{product.description}</p>
         </div>
-        <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
-          <h2 className="font-heading font-semibold text-white text-lg mb-4">{t("specs")}</h2>
+        <div className="bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-2xl p-6">
+          <h2 className="font-heading font-semibold text-[var(--ui-text)] text-lg mb-4">{t("specs")}</h2>
           <dl className="space-y-2.5">
             {Object.entries(product.specs).map(([key, value]) => (
               <div key={key} className="flex items-start justify-between gap-4 text-sm">
-                <dt className="text-slate-500 shrink-0">{key}</dt>
-                <dd className="text-slate-200 text-right">{value}</dd>
+                <dt className="text-[var(--ui-text-4)] shrink-0">{key}</dt>
+                <dd className="text-[var(--ui-text)] text-right">{value}</dd>
               </div>
             ))}
           </dl>
@@ -143,7 +143,7 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
       </div>
 
       <div className="mt-10">
-        <Link href="/smartphones" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-300 transition-colors cursor-pointer">
+        <Link href="/smartphones" className="inline-flex items-center gap-2 text-sm text-[var(--ui-text-4)] hover:text-[var(--ui-text-2)] transition-colors cursor-pointer">
           <ArrowLeft className="w-4 h-4" />
           {t("backToPhones")}
         </Link>

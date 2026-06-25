@@ -72,17 +72,17 @@ function SmartphonesContent() {
   const filtersJSX = (
     <div className="space-y-2">
       <Accordion multiple className="space-y-2">
-        <AccordionItem value="brands" className="border-white/10 bg-[#141414] rounded-xl px-4">
-          <AccordionTrigger className="text-sm font-semibold text-white hover:no-underline py-4">{t("brands")}</AccordionTrigger>
+        <AccordionItem value="brands" className="border-[var(--ui-border)] bg-[var(--ui-surface)] rounded-xl px-4">
+          <AccordionTrigger className="text-sm font-semibold text-[var(--ui-text)] hover:no-underline py-4">{t("brands")}</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-2 pb-4">
               {BRANDS.map(b => (
                 <label key={b.id} className="flex items-center gap-3 cursor-pointer group" onClick={() => toggleBrand(b.id)}>
                   <div className={cn("w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-all",
-                    selectedBrands.includes(b.id) ? "bg-[#DC2626] border-[#DC2626]" : "border-white/20 group-hover:border-white/40")}>
+                    selectedBrands.includes(b.id) ? "bg-[#DC2626] border-[#DC2626]" : "border-[var(--ui-border-2)] group-hover:border-[var(--ui-border-2)]")}>
                     {selectedBrands.includes(b.id) && <div className="w-2 h-2 bg-white rounded-sm" />}
                   </div>
-                  <span className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">{b.name}</span>
+                  <span className="text-sm text-[var(--ui-text-3)] group-hover:text-[var(--ui-text)] transition-colors">{b.name}</span>
                 </label>
               ))}
             </div>
@@ -90,11 +90,11 @@ function SmartphonesContent() {
         </AccordionItem>
       </Accordion>
 
-      <div className="bg-[#141414] rounded-xl px-4">
+      <div className="bg-[var(--ui-surface)] rounded-xl px-4">
         <button type="button" onClick={() => setOpenPrice(p => !p)}
-          className="w-full flex items-center justify-between py-4 text-sm font-semibold text-white cursor-pointer">
+          className="w-full flex items-center justify-between py-4 text-sm font-semibold text-[var(--ui-text)] cursor-pointer">
           {t("price")}
-          <ChevronDown className={cn("w-4 h-4 text-slate-500 transition-transform duration-200", openPrice && "rotate-180")} />
+          <ChevronDown className={cn("w-4 h-4 text-[var(--ui-text-4)] transition-transform duration-200", openPrice && "rotate-180")} />
         </button>
         {openPrice && (
           <PriceRangeFilter min={PRICE_MIN} max={PRICE_MAX} value={priceRange} onChange={setPriceRange} />
@@ -120,17 +120,17 @@ function SmartphonesContent() {
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
         <div>
           <p className="text-[#EF4444] text-sm font-medium uppercase tracking-widest mb-1">{t("catalog")}</p>
-          <h1 className="font-heading text-3xl font-bold text-white">{t("phonesTitle")}</h1>
-          <p className="text-slate-400 mt-1">{t("found")} {filtered.length} {t("products")}</p>
+          <h1 className="font-heading text-3xl font-bold text-[var(--ui-text)]">{t("phonesTitle")}</h1>
+          <p className="text-[var(--ui-text-3)] mt-1">{t("found")} {filtered.length} {t("products")}</p>
         </div>
         <Link href="/parts"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 hover:border-[#DC2626]/50 hover:text-[#EF4444] transition-all cursor-pointer">
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--ui-hover)] border border-[var(--ui-border)] rounded-lg text-sm text-[var(--ui-text-2)] hover:border-[#DC2626]/50 hover:text-[#EF4444] transition-all cursor-pointer">
           {t("parts")} →
         </Link>
       </div>
 
       {/* Condition tabs */}
-      <div className="flex items-center gap-2 mb-7 p-1 bg-[#141414] border border-white/10 rounded-xl w-fit">
+      <div className="flex items-center gap-2 mb-7 p-1 bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-xl w-fit">
         {conditionTabs.map(tab => {
           const Icon = tab.icon;
           return (
@@ -138,11 +138,11 @@ function SmartphonesContent() {
               className={cn("flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer",
                 condition === tab.id
                   ? "bg-[#DC2626] text-white shadow-lg shadow-[#DC2626]/20"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-white/5")}>
+                  : "text-[var(--ui-text-3)] hover:text-[var(--ui-text)] hover:bg-[var(--ui-hover)]")}>
               <Icon className="w-4 h-4" />
               {t(tab.labelKey)}
               <span className={cn("text-xs px-1.5 py-0.5 rounded-full",
-                condition === tab.id ? "bg-white/20 text-white" : "bg-white/10 text-slate-500")}>
+                condition === tab.id ? "bg-[var(--ui-hover-2)] text-[var(--ui-text)]" : "bg-[var(--ui-hover-2)] text-[var(--ui-text-4)]")}>
                 {SMARTPHONES.filter(p => tab.id === "all" || p.condition === tab.id).length}
               </span>
             </button>
@@ -156,7 +156,7 @@ function SmartphonesContent() {
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-3 mb-5">
             <Button variant="outline" size="sm" onClick={() => setMobileOpen(true)}
-              className="lg:hidden border-white/20 text-slate-300 hover:bg-white/10 cursor-pointer">
+              className="lg:hidden border-[var(--ui-border-2)] text-[var(--ui-text-2)] hover:bg-[var(--ui-hover-2)] cursor-pointer">
               <SlidersHorizontal className="w-4 h-4 mr-2" />
               {t("filters")} {activeBrandTags.length > 0 && (
                 <span className="ml-1 bg-[#DC2626] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
@@ -168,7 +168,7 @@ function SmartphonesContent() {
             {activeBrandTags.map(tag => (
               <span key={tag.id} className="flex items-center gap-1.5 px-3 py-1 bg-[#DC2626]/15 border border-[#DC2626]/30 rounded-full text-xs text-[#EF4444]">
                 {tag.label}
-                <button onClick={() => toggleBrand(tag.id)} className="cursor-pointer hover:text-white">
+                <button onClick={() => toggleBrand(tag.id)} className="cursor-pointer hover:text-[var(--ui-text)]">
                   <X className="w-3 h-3" />
                 </button>
               </span>
@@ -176,15 +176,15 @@ function SmartphonesContent() {
 
             <div className="ml-auto">
               <Select value={sort} onValueChange={(v: string | null) => setSort((v ?? "default") as SortKey)}>
-                <SelectTrigger className="w-52 bg-[#141414] border-white/10 text-slate-300 h-9 text-sm cursor-pointer">
-                  <ArrowUpDown className="w-3.5 h-3.5 mr-2 text-slate-500" />
+                <SelectTrigger className="w-52 bg-[var(--ui-surface)] border-[var(--ui-border)] text-[var(--ui-text-2)] h-9 text-sm cursor-pointer">
+                  <ArrowUpDown className="w-3.5 h-3.5 mr-2 text-[var(--ui-text-4)]" />
                   <span>{{ default: t("sortDefault"), price_asc: t("sortPriceAsc"), price_desc: t("sortPriceDes"), popular: t("sortPopular") }[sort]}</span>
                 </SelectTrigger>
-                <SelectContent className="bg-[#141414] border-white/10">
-                  <SelectItem value="default"    className="text-slate-300 cursor-pointer">{t("sortDefault")}</SelectItem>
-                  <SelectItem value="price_asc"  className="text-slate-300 cursor-pointer">{t("sortPriceAsc")}</SelectItem>
-                  <SelectItem value="price_desc" className="text-slate-300 cursor-pointer">{t("sortPriceDes")}</SelectItem>
-                  <SelectItem value="popular"    className="text-slate-300 cursor-pointer">{t("sortPopular")}</SelectItem>
+                <SelectContent className="bg-[var(--ui-surface)] border-[var(--ui-border)]">
+                  <SelectItem value="default"    className="text-[var(--ui-text-2)] cursor-pointer">{t("sortDefault")}</SelectItem>
+                  <SelectItem value="price_asc"  className="text-[var(--ui-text-2)] cursor-pointer">{t("sortPriceAsc")}</SelectItem>
+                  <SelectItem value="price_desc" className="text-[var(--ui-text-2)] cursor-pointer">{t("sortPriceDes")}</SelectItem>
+                  <SelectItem value="popular"    className="text-[var(--ui-text-2)] cursor-pointer">{t("sortPopular")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -192,8 +192,8 @@ function SmartphonesContent() {
 
           {filtered.length === 0 ? (
             <div className="flex flex-col items-center py-20 text-center">
-              <XCircle className="w-12 h-12 text-slate-600 mb-4" />
-              <p className="text-slate-400 font-medium">{t("noProducts")}</p>
+              <XCircle className="w-12 h-12 text-[var(--ui-text-5)] mb-4" />
+              <p className="text-[var(--ui-text-3)] font-medium">{t("noProducts")}</p>
               <button onClick={clearAll} className="mt-4 text-[#EF4444] text-sm hover:underline cursor-pointer">{t("resetFilters")}</button>
             </div>
           ) : (
@@ -207,10 +207,10 @@ function SmartphonesContent() {
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0A0A0A] border-l border-white/10 overflow-y-auto p-5">
+          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[var(--ui-bg)] border-l border-[var(--ui-border)] overflow-y-auto p-5">
             <div className="flex items-center justify-between mb-5">
-              <h2 className="font-heading font-semibold text-white">{t("filters")}</h2>
-              <button onClick={() => setMobileOpen(false)} className="text-slate-400 hover:text-white cursor-pointer p-1"><X className="w-5 h-5" /></button>
+              <h2 className="font-heading font-semibold text-[var(--ui-text)]">{t("filters")}</h2>
+              <button onClick={() => setMobileOpen(false)} className="text-[var(--ui-text-3)] hover:text-[var(--ui-text)] cursor-pointer p-1"><X className="w-5 h-5" /></button>
             </div>
             {filtersJSX}
             <Button onClick={() => setMobileOpen(false)} className="w-full mt-4 bg-[#DC2626] hover:bg-[#B91C1C] cursor-pointer text-white">
@@ -228,10 +228,10 @@ function SmartphoneCard({ product }: { product: Product }) {
   const isUsed = product.condition === "used";
   return (
     <Link href={`/smartphones/${product.id}`}
-      className="group bg-[#141414] border border-white/10 rounded-xl overflow-hidden hover:border-[#DC2626]/40 transition-all duration-200 flex flex-col cursor-pointer">
-      <div className="relative h-52 bg-[#1C1C1C] flex items-center justify-center overflow-hidden">
+      className="group bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-xl overflow-hidden hover:border-[#DC2626]/40 transition-all duration-200 flex flex-col cursor-pointer">
+      <div className="relative h-52 bg-[var(--ui-surface-2)] flex items-center justify-center overflow-hidden">
         <div className="w-16 h-24 bg-[#DC2626]/10 rounded-2xl border-2 border-[#DC2626]/20 flex items-center justify-center">
-          <Smartphone className="w-8 h-8 text-[#1C1C1C]" />
+          <Smartphone className="w-8 h-8 text-[var(--ui-text-5)]" />
         </div>
         <span className={cn("absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-xs font-bold",
           isUsed ? "bg-[#F59E0B] text-black" : "bg-[#22C55E] text-black")}>
@@ -244,9 +244,9 @@ function SmartphoneCard({ product }: { product: Product }) {
       <div className="p-4 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-[10px] px-2 py-0.5 bg-[#DC2626]/10 text-[#EF4444] rounded-full font-semibold">{product.brand}</span>
-          <span className="text-[10px] text-slate-600 font-mono ml-auto">{product.sku}</span>
+          <span className="text-[10px] text-[var(--ui-text-5)] font-mono ml-auto">{product.sku}</span>
         </div>
-        <h3 className="text-sm font-medium text-slate-200 leading-snug mb-1 line-clamp-2 group-hover:text-white transition-colors">
+        <h3 className="text-sm font-medium text-[var(--ui-text)] leading-snug mb-1 line-clamp-2 group-hover:text-[var(--ui-text)] transition-colors">
           {product.name}
         </h3>
         {isUsed && product.visualCondition && (
@@ -261,7 +261,7 @@ function SmartphoneCard({ product }: { product: Product }) {
             : <><XCircle className="w-3.5 h-3.5 text-[#EF4444]" /><span className="text-xs text-[#EF4444]">{t("outOfStock")}</span></>}
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-lg font-bold font-heading text-white">{formatPrice(product.price)}</span>
+          <span className="text-lg font-bold font-heading text-[var(--ui-text)]">{formatPrice(product.price)}</span>
           <span className="text-xs text-[#EF4444] group-hover:text-[#F87171] transition-colors">{t("more")}</span>
         </div>
       </div>
@@ -271,7 +271,7 @@ function SmartphoneCard({ product }: { product: Product }) {
 
 export default function SmartphonesPage() {
   return (
-    <Suspense fallback={<div className="max-w-7xl mx-auto px-4 pt-24 pb-16 text-slate-400">Загрузка…</div>}>
+    <Suspense fallback={<div className="max-w-7xl mx-auto px-4 pt-24 pb-16 text-[var(--ui-text-3)]">Загрузка…</div>}>
       <SmartphonesContent />
     </Suspense>
   );

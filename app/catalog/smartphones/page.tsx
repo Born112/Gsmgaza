@@ -52,8 +52,8 @@ function SmartphonesContent() {
   const FilterPanel = () => (
     <div className="space-y-3">
       {/* Brand filter */}
-      <div className="bg-[#141414] border border-white/10 rounded-xl p-4">
-        <h3 className="text-sm font-semibold text-white mb-3">Бренды</h3>
+      <div className="bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-xl p-4">
+        <h3 className="text-sm font-semibold text-[var(--ui-text)] mb-3">Бренды</h3>
         <div className="space-y-2">
           {BRANDS.map(b => (
             <label key={b.id} className="flex items-center gap-3 cursor-pointer group" onClick={() => toggleBrand(b.id)}>
@@ -61,19 +61,19 @@ function SmartphonesContent() {
                 "w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-all duration-150",
                 selectedBrands.includes(b.id)
                   ? "bg-[#DC2626] border-[#DC2626]"
-                  : "border-white/20 group-hover:border-white/40"
+                  : "border-[var(--ui-border-2)] group-hover:border-[var(--ui-border-2)]"
               )}>
                 {selectedBrands.includes(b.id) && <div className="w-2 h-2 bg-white rounded-sm" />}
               </div>
-              <span className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">{b.name}</span>
+              <span className="text-sm text-[var(--ui-text-3)] group-hover:text-[var(--ui-text)] transition-colors">{b.name}</span>
             </label>
           ))}
         </div>
       </div>
 
       {/* Price filter */}
-      <div className="bg-[#141414] border border-white/10 rounded-xl p-4">
-        <h3 className="text-sm font-semibold text-white mb-4">Цена</h3>
+      <div className="bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-xl p-4">
+        <h3 className="text-sm font-semibold text-[var(--ui-text)] mb-4">Цена</h3>
         <Slider
           min={PRICE_MIN}
           max={PRICE_MAX}
@@ -82,7 +82,7 @@ function SmartphonesContent() {
           onValueChange={v => setPriceRange(v as [number, number])}
           className="cursor-pointer mb-3"
         />
-        <div className="flex justify-between text-sm text-slate-400">
+        <div className="flex justify-between text-sm text-[var(--ui-text-3)]">
           <span>{formatPrice(priceRange[0])}</span>
           <span>{formatPrice(priceRange[1])}</span>
         </div>
@@ -104,15 +104,15 @@ function SmartphonesContent() {
       {/* Back link */}
       <Link
         href="/catalog"
-        className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-300 transition-colors mb-6 cursor-pointer"
+        className="inline-flex items-center gap-1.5 text-sm text-[var(--ui-text-4)] hover:text-[var(--ui-text-2)] transition-colors mb-6 cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" />
         Назад к запчастям
       </Link>
 
       <div className="mb-6">
-        <h1 className="font-heading text-3xl font-bold text-white">Смартфоны</h1>
-        <p className="text-slate-400 mt-1">Новые и проверенные б/у устройства с гарантией</p>
+        <h1 className="font-heading text-3xl font-bold text-[var(--ui-text)]">Смартфоны</h1>
+        <p className="text-[var(--ui-text-3)] mt-1">Новые и проверенные б/у устройства с гарантией</p>
       </div>
 
       {/* Condition tabs */}
@@ -129,13 +129,13 @@ function SmartphonesContent() {
               "flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer border",
               conditionFilter === tab.key
                 ? "bg-[#DC2626] border-[#DC2626] text-white"
-                : "border-white/10 text-slate-400 hover:text-white hover:border-white/25 bg-[#141414]"
+                : "border-[var(--ui-border)] text-[var(--ui-text-3)] hover:text-[var(--ui-text)] hover:border-[var(--ui-border-2)] bg-[var(--ui-surface)]"
             )}
           >
             {tab.label}
             <span className={cn(
               "text-xs px-1.5 py-0.5 rounded-full font-bold",
-              conditionFilter === tab.key ? "bg-white/20 text-white" : "bg-white/5 text-slate-500"
+              conditionFilter === tab.key ? "bg-[var(--ui-hover-2)] text-[var(--ui-text)]" : "bg-[var(--ui-hover)] text-[var(--ui-text-4)]"
             )}>
               {tab.count}
             </span>
@@ -156,7 +156,7 @@ function SmartphonesContent() {
               variant="outline"
               size="sm"
               onClick={() => setIsMobileFilterOpen(true)}
-              className="lg:hidden border-white/20 text-slate-300 hover:bg-white/10 cursor-pointer"
+              className="lg:hidden border-[var(--ui-border-2)] text-[var(--ui-text-2)] hover:bg-[var(--ui-hover-2)] cursor-pointer"
             >
               <SlidersHorizontal className="w-4 h-4 mr-2" />
               Фильтры
@@ -165,7 +165,7 @@ function SmartphonesContent() {
             {selectedBrands.map(b => (
               <span key={b} className="flex items-center gap-1.5 px-3 py-1 bg-[#DC2626]/15 border border-[#DC2626]/30 rounded-full text-xs text-[#EF4444]">
                 {BRANDS.find(x => x.id === b)?.name ?? b}
-                <button onClick={() => toggleBrand(b)} className="cursor-pointer hover:text-white" aria-label={`Убрать ${b}`}>
+                <button onClick={() => toggleBrand(b)} className="cursor-pointer hover:text-[var(--ui-text)]" aria-label={`Убрать ${b}`}>
                   <X className="w-3 h-3" />
                 </button>
               </span>
@@ -173,25 +173,25 @@ function SmartphonesContent() {
 
             <div className="ml-auto">
               <Select value={sort} onValueChange={(v: string | null) => setSort((v ?? "default") as SortKey)}>
-                <SelectTrigger className="w-52 bg-[#141414] border-white/10 text-slate-300 h-9 text-sm cursor-pointer">
-                  <ArrowUpDown className="w-3.5 h-3.5 mr-2 text-slate-500" />
+                <SelectTrigger className="w-52 bg-[var(--ui-surface)] border-[var(--ui-border)] text-[var(--ui-text-2)] h-9 text-sm cursor-pointer">
+                  <ArrowUpDown className="w-3.5 h-3.5 mr-2 text-[var(--ui-text-4)]" />
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-[#141414] border-white/10">
-                  <SelectItem value="default"    className="text-slate-300 cursor-pointer">По умолчанию</SelectItem>
-                  <SelectItem value="price_asc"  className="text-slate-300 cursor-pointer">Цена: по возрастанию</SelectItem>
-                  <SelectItem value="price_desc" className="text-slate-300 cursor-pointer">Цена: по убыванию</SelectItem>
+                <SelectContent className="bg-[var(--ui-surface)] border-[var(--ui-border)]">
+                  <SelectItem value="default"    className="text-[var(--ui-text-2)] cursor-pointer">По умолчанию</SelectItem>
+                  <SelectItem value="price_asc"  className="text-[var(--ui-text-2)] cursor-pointer">Цена: по возрастанию</SelectItem>
+                  <SelectItem value="price_desc" className="text-[var(--ui-text-2)] cursor-pointer">Цена: по убыванию</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
 
-          <p className="text-slate-500 text-sm mb-4">Найдено: {filtered.length} устройств</p>
+          <p className="text-[var(--ui-text-4)] text-sm mb-4">Найдено: {filtered.length} устройств</p>
 
           {filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
-              <XCircle className="w-12 h-12 text-slate-600 mb-4" />
-              <p className="text-slate-400 font-medium">Устройства не найдены</p>
+              <XCircle className="w-12 h-12 text-[var(--ui-text-5)] mb-4" />
+              <p className="text-[var(--ui-text-3)] font-medium">Устройства не найдены</p>
               <button
                 onClick={() => { setConditionFilter("all"); setSelectedBrands([]); setPriceRange([PRICE_MIN, PRICE_MAX]); }}
                 className="mt-4 text-[#EF4444] text-sm hover:underline cursor-pointer"
@@ -211,10 +211,10 @@ function SmartphonesContent() {
       {isMobileFilterOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setIsMobileFilterOpen(false)} />
-          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0A0A0A] border-l border-white/10 overflow-y-auto p-5">
+          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[var(--ui-bg)] border-l border-[var(--ui-border)] overflow-y-auto p-5">
             <div className="flex items-center justify-between mb-5">
-              <h2 className="font-heading font-semibold text-white">Фильтры</h2>
-              <button onClick={() => setIsMobileFilterOpen(false)} className="text-slate-400 hover:text-white cursor-pointer p-1">
+              <h2 className="font-heading font-semibold text-[var(--ui-text)]">Фильтры</h2>
+              <button onClick={() => setIsMobileFilterOpen(false)} className="text-[var(--ui-text-3)] hover:text-[var(--ui-text)] cursor-pointer p-1">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -234,11 +234,11 @@ function SmartphoneCard({ product }: { product: Product }) {
   const [showCondition, setShowCondition] = useState(false);
 
   return (
-    <div className="group bg-[#141414] border border-white/10 rounded-xl overflow-hidden hover:border-[#DC2626]/40 transition-all duration-200 flex flex-col">
+    <div className="group bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-xl overflow-hidden hover:border-[#DC2626]/40 transition-all duration-200 flex flex-col">
       {/* Image */}
-      <div className="relative h-48 bg-[#1C1C1C] flex items-center justify-center overflow-hidden">
+      <div className="relative h-48 bg-[var(--ui-surface-2)] flex items-center justify-center overflow-hidden">
         <div className="w-16 h-24 bg-[#DC2626]/10 rounded-xl border-2 border-[#DC2626]/20 flex items-center justify-center">
-          <ShoppingCart className="w-8 h-8 text-[#1C1C1C]" />
+          <ShoppingCart className="w-8 h-8 text-[var(--ui-text-5)]" />
         </div>
 
         {/* Condition badge */}
@@ -251,7 +251,7 @@ function SmartphoneCard({ product }: { product: Product }) {
           {isUsed ? "Б/У" : "Новый"}
         </span>
 
-        <span className="absolute top-3 right-3 px-2 py-0.5 bg-[#141414]/80 backdrop-blur-sm text-slate-400 text-xs rounded-full border border-white/10">
+        <span className="absolute top-3 right-3 px-2 py-0.5 bg-[var(--ui-surface)]/80 backdrop-blur-sm text-[var(--ui-text-3)] text-xs rounded-full border border-[var(--ui-border)]">
           {product.brand}
         </span>
 
@@ -263,8 +263,8 @@ function SmartphoneCard({ product }: { product: Product }) {
       </div>
 
       <div className="p-4 flex flex-col flex-1">
-        <p className="text-[10px] text-slate-600 font-mono mb-1">{product.sku}</p>
-        <h3 className="text-sm font-medium text-slate-200 leading-snug mb-3 line-clamp-2 group-hover:text-white transition-colors">
+        <p className="text-[10px] text-[var(--ui-text-5)] font-mono mb-1">{product.sku}</p>
+        <h3 className="text-sm font-medium text-[var(--ui-text)] leading-snug mb-3 line-clamp-2 group-hover:text-[var(--ui-text)] transition-colors">
           {product.name}
         </h3>
 
@@ -279,7 +279,7 @@ function SmartphoneCard({ product }: { product: Product }) {
               Внешнее состояние {showCondition ? "▲" : "▼"}
             </button>
             {showCondition && (
-              <p className="mt-1.5 text-xs text-slate-400 bg-[#1C1C1C]/50 rounded-lg p-2.5 leading-relaxed">
+              <p className="mt-1.5 text-xs text-[var(--ui-text-3)] bg-[var(--ui-surface-2)]/50 rounded-lg p-2.5 leading-relaxed">
                 {product.visualCondition}
               </p>
             )}
@@ -295,7 +295,7 @@ function SmartphoneCard({ product }: { product: Product }) {
         </div>
 
         <div className="flex items-center justify-between mt-auto">
-          <div className="text-lg font-bold font-heading text-white">
+          <div className="text-lg font-bold font-heading text-[var(--ui-text)]">
             {formatPrice(product.price)}
           </div>
           <Button
@@ -315,7 +315,7 @@ function SmartphoneCard({ product }: { product: Product }) {
 export default function SmartphonesPage() {
   return (
     <Suspense fallback={
-      <div className="max-w-7xl mx-auto px-4 pt-24 pb-16 text-slate-400">Загрузка…</div>
+      <div className="max-w-7xl mx-auto px-4 pt-24 pb-16 text-[var(--ui-text-3)]">Загрузка…</div>
     }>
       <SmartphonesContent />
     </Suspense>

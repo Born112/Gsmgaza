@@ -21,11 +21,11 @@ export function RepairServices() {
       <div className="flex items-end justify-between mb-8">
         <div>
           <p className="text-[#EF4444] text-sm font-medium uppercase tracking-widest mb-2">{t("serviceLabel")}</p>
-          <h2 className="font-heading text-3xl font-bold text-white">{t("popularRepair")}</h2>
+          <h2 className="font-heading text-3xl font-bold text-[var(--ui-text)]">{t("popularRepair")}</h2>
         </div>
         <Link
           href="/service"
-          className="text-sm text-slate-400 hover:text-[#EF4444] transition-colors duration-150 cursor-pointer hidden sm:block"
+          className="text-sm text-[var(--ui-text-3)] hover:text-[#EF4444] transition-colors duration-150 cursor-pointer hidden sm:block"
         >
           {t("allServices")}
         </Link>
@@ -37,7 +37,7 @@ export function RepairServices() {
           return (
             <div
               key={service.id}
-              className="group relative bg-[#141414] border border-white/10 rounded-xl p-6 hover:border-[#DC2626]/40 transition-all duration-200 cursor-default overflow-hidden"
+              className="group relative bg-[var(--ui-surface)] border border-[var(--ui-border)] rounded-xl p-6 hover:border-[#DC2626]/40 transition-all duration-200 cursor-default overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#DC2626]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl" />
 
@@ -45,19 +45,19 @@ export function RepairServices() {
                 <Icon className="w-6 h-6 text-[#EF4444]" />
               </div>
 
-              <h3 className="font-heading font-semibold text-white text-lg mb-2">{service.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-4">{service.desc}</p>
+              <h3 className="font-heading font-semibold text-[var(--ui-text)] text-lg mb-2">{service.title}</h3>
+              <p className="text-sm text-[var(--ui-text-3)] leading-relaxed mb-4">{service.desc}</p>
 
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs text-slate-500">{t("from").toLowerCase()}</div>
+                  <div className="text-xs text-[var(--ui-text-4)]">{t("from").toLowerCase()}</div>
                   <div className="text-xl font-bold font-heading text-[#EF4444]">
                     {formatPrice(service.priceFrom)}
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-slate-500">{t("termLabel")}</div>
-                  <div className="text-sm font-medium text-slate-300">{service.duration}</div>
+                  <div className="text-xs text-[var(--ui-text-4)]">{t("termLabel")}</div>
+                  <div className="text-sm font-medium text-[var(--ui-text-2)]">{service.duration}</div>
                 </div>
               </div>
             </div>

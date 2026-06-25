@@ -40,11 +40,11 @@ export function HeroSection() {
           </div>
 
           {/* Heading */}
-          <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+          <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--ui-text)] leading-[1.05] tracking-tight mb-6">
             {t("heroTitle")}
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mb-8">
+          <p className="text-lg sm:text-xl text-[var(--ui-text-3)] leading-relaxed max-w-2xl mb-8">
             {t("heroSub")}
           </p>
 
@@ -61,7 +61,7 @@ export function HeroSection() {
 
             <Link
               href="/service"
-              className="inline-flex items-center justify-center gap-2 px-8 h-12 text-base font-semibold text-white bg-white/5 border border-white/20 hover:bg-white/10 hover:border-white/30 rounded-lg cursor-pointer transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-8 h-12 text-base font-semibold text-[var(--ui-text)] bg-[var(--ui-hover)] border border-[var(--ui-border-2)] hover:bg-[var(--ui-hover-2)] hover:border-[var(--ui-border-2)] rounded-lg cursor-pointer transition-all duration-200"
             >
               <Wrench className="w-5 h-5" />
               {t("bookRepair")}
@@ -74,13 +74,13 @@ export function HeroSection() {
           {STATS.map(({ icon: Icon, value, labelKey }) => (
             <div
               key={labelKey}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-[#DC2626]/40 hover:bg-white/8 transition-all duration-200 cursor-default"
+              className="bg-[var(--ui-hover)] backdrop-blur-sm border border-[var(--ui-border)] rounded-xl p-5 hover:border-[#DC2626]/40 hover:bg-[var(--ui-hover)] transition-all duration-200 cursor-default"
             >
               <div className="w-9 h-9 bg-[#DC2626]/15 rounded-lg flex items-center justify-center mb-3">
                 <Icon className="w-5 h-5 text-[#EF4444]" />
               </div>
-              <div className="text-2xl font-heading font-bold text-white mb-0.5">{value}</div>
-              <div className="text-sm text-slate-500">{t(labelKey)}</div>
+              <div className="text-2xl font-heading font-bold text-[var(--ui-text)] mb-0.5">{value}</div>
+              <div className="text-sm text-[var(--ui-text-4)]">{t(labelKey)}</div>
             </div>
           ))}
         </div>
