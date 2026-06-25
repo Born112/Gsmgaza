@@ -15,7 +15,7 @@ type Panel = "orders" | "products";
 
 const STATUS_CONFIG = {
   "Обработан": { icon: Clock, color: "text-[#F59E0B]", bg: "bg-[#F59E0B]/10", border: "border-[#F59E0B]/20" },
-  "В пути": { icon: Truck, color: "text-[#3B82F6]", bg: "bg-[#3B82F6]/10", border: "border-[#3B82F6]/20" },
+  "В пути": { icon: Truck, color: "text-[#EF4444]", bg: "bg-[#EF4444]/10", border: "border-[#EF4444]/20" },
   "Доставлен": { icon: CheckCircle2, color: "text-[#22C55E]", bg: "bg-[#22C55E]/10", border: "border-[#22C55E]/20" },
 } as const;
 
@@ -56,7 +56,7 @@ export default function AdminPage() {
         </div>
         <Button
           onClick={() => { setEditingProduct(EMPTY_PRODUCT); setIsProductModalOpen(true); }}
-          className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white cursor-pointer"
+          className="bg-[#DC2626] hover:bg-[#B91C1C] text-white cursor-pointer"
         >
           <Plus className="w-4 h-4 mr-2" />
           {t("addProduct")}
@@ -66,10 +66,10 @@ export default function AdminPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {STATS.map(({ icon: Icon, label, value, delta }) => (
-          <div key={label} className="bg-[#1E293B] border border-white/10 rounded-xl p-5">
+          <div key={label} className="bg-[#141414] border border-white/10 rounded-xl p-5">
             <div className="flex items-start justify-between mb-3">
-              <div className="w-9 h-9 bg-[#2563EB]/15 rounded-lg flex items-center justify-center">
-                <Icon className="w-5 h-5 text-[#3B82F6]" />
+              <div className="w-9 h-9 bg-[#DC2626]/15 rounded-lg flex items-center justify-center">
+                <Icon className="w-5 h-5 text-[#EF4444]" />
               </div>
               {delta && (
                 <span className="text-xs font-medium text-[#22C55E] bg-[#22C55E]/10 px-2 py-0.5 rounded-full">{delta}</span>
@@ -82,14 +82,14 @@ export default function AdminPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-2 mb-6 bg-[#1E293B] border border-white/10 rounded-xl p-1 w-fit">
+      <div className="flex gap-2 mb-6 bg-[#141414] border border-white/10 rounded-xl p-1 w-fit">
         {(["orders", "products"] as Panel[]).map(p => (
           <button
             key={p}
             onClick={() => setPanel(p)}
             className={cn(
               "px-5 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer",
-              panel === p ? "bg-[#2563EB] text-white" : "text-slate-400 hover:text-white hover:bg-white/5"
+              panel === p ? "bg-[#DC2626] text-white" : "text-slate-400 hover:text-white hover:bg-white/5"
             )}
           >
             {p === "orders" ? t("ordersTab") : t("productsTab")}
@@ -99,7 +99,7 @@ export default function AdminPage() {
 
       {/* Orders table */}
       {panel === "orders" && (
-        <div className="bg-[#1E293B] border border-white/10 rounded-2xl overflow-hidden">
+        <div className="bg-[#141414] border border-white/10 rounded-2xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
@@ -131,7 +131,7 @@ export default function AdminPage() {
                           <SelectTrigger className="w-36 h-7 bg-white/5 border-white/10 text-slate-400 text-xs cursor-pointer">
                             <SelectValue />
                           </SelectTrigger>
-                          <SelectContent className="bg-[#1E293B] border-white/10">
+                          <SelectContent className="bg-[#141414] border-white/10">
                             {["Обработан", "В пути", "Доставлен"].map(s => (
                               <SelectItem key={s} value={s} className="text-slate-300 cursor-pointer text-xs">{s}</SelectItem>
                             ))}
@@ -149,11 +149,11 @@ export default function AdminPage() {
 
       {/* Products panel placeholder */}
       {panel === "products" && (
-        <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-8 text-center">
+        <div className="bg-[#141414] border border-white/10 rounded-2xl p-8 text-center">
           <Package className="w-12 h-12 text-slate-600 mx-auto mb-4" />
           <p className="text-slate-400 font-medium mb-2">{t("productsList")}</p>
           <p className="text-slate-600 text-sm mb-6">{t("productsListMsg")}</p>
-          <Button onClick={() => { setEditingProduct(EMPTY_PRODUCT); setIsProductModalOpen(true); }} className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white cursor-pointer">
+          <Button onClick={() => { setEditingProduct(EMPTY_PRODUCT); setIsProductModalOpen(true); }} className="bg-[#DC2626] hover:bg-[#B91C1C] text-white cursor-pointer">
             <Plus className="w-4 h-4 mr-2" />
             {t("addProduct")}
           </Button>
@@ -162,7 +162,7 @@ export default function AdminPage() {
 
       {/* Product form modal */}
       <Dialog open={isProductModalOpen} onOpenChange={setIsProductModalOpen}>
-        <DialogContent className="bg-[#1E293B] border-white/10 text-white max-w-lg">
+        <DialogContent className="bg-[#141414] border-white/10 text-white max-w-lg">
           <DialogHeader>
             <DialogTitle className="font-heading text-white">{t("addEditProduct")}</DialogTitle>
           </DialogHeader>
@@ -171,11 +171,11 @@ export default function AdminPage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1.5">
                 <label className="text-sm text-slate-400">{t("productNameRu")}</label>
-                <Input required placeholder="Дисплей для iPhone 15" value={editingProduct.name_ru} onChange={e => setEditingProduct(p => ({ ...p, name_ru: e.target.value }))} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#2563EB]" />
+                <Input required placeholder="Дисплей для iPhone 15" value={editingProduct.name_ru} onChange={e => setEditingProduct(p => ({ ...p, name_ru: e.target.value }))} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626]" />
               </div>
               <div className="space-y-1.5">
                 <label className="text-sm text-slate-400">{t("productNameUz")}</label>
-                <Input required placeholder="iPhone 15 uchun displey" value={editingProduct.name_uz} onChange={e => setEditingProduct(p => ({ ...p, name_uz: e.target.value }))} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#2563EB]" />
+                <Input required placeholder="iPhone 15 uchun displey" value={editingProduct.name_uz} onChange={e => setEditingProduct(p => ({ ...p, name_uz: e.target.value }))} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626]" />
               </div>
             </div>
 
@@ -186,7 +186,7 @@ export default function AdminPage() {
                   <SelectTrigger className="bg-white/5 border-white/10 text-slate-300 cursor-pointer">
                     <SelectValue placeholder={t("chooseSelect")} />
                   </SelectTrigger>
-                  <SelectContent className="bg-[#1E293B] border-white/10">
+                  <SelectContent className="bg-[#141414] border-white/10">
                     {BRANDS.map(b => <SelectItem key={b.id} value={b.name} className="text-slate-300 cursor-pointer">{b.name}</SelectItem>)}
                   </SelectContent>
                 </Select>
@@ -197,7 +197,7 @@ export default function AdminPage() {
                   <SelectTrigger className="bg-white/5 border-white/10 text-slate-300 cursor-pointer">
                     <SelectValue placeholder={t("chooseSelect")} />
                   </SelectTrigger>
-                  <SelectContent className="bg-[#1E293B] border-white/10">
+                  <SelectContent className="bg-[#141414] border-white/10">
                     {CATEGORIES.map(c => <SelectItem key={c.id} value={c.id} className="text-slate-300 cursor-pointer">{t(c.id as Parameters<typeof t>[0]) || c.name}</SelectItem>)}
                   </SelectContent>
                 </Select>
@@ -206,7 +206,7 @@ export default function AdminPage() {
 
             <div className="space-y-1.5">
               <label className="text-sm text-slate-400">{t("priceSum")}</label>
-              <Input required type="number" min="0" placeholder="0" value={editingProduct.price} onChange={e => setEditingProduct(p => ({ ...p, price: e.target.value }))} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#2563EB]" />
+              <Input required type="number" min="0" placeholder="0" value={editingProduct.price} onChange={e => setEditingProduct(p => ({ ...p, price: e.target.value }))} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626]" />
             </div>
 
             {/* Bilingual descriptions */}
@@ -218,7 +218,7 @@ export default function AdminPage() {
                   placeholder="Описание товара..."
                   value={editingProduct.description_ru}
                   onChange={e => setEditingProduct(p => ({ ...p, description_ru: e.target.value }))}
-                  className="w-full rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 py-2 focus:border-[#2563EB] focus:outline-none resize-none placeholder:text-slate-600"
+                  className="w-full rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 py-2 focus:border-[#DC2626] focus:outline-none resize-none placeholder:text-slate-600"
                 />
               </div>
               <div className="space-y-1.5">
@@ -228,7 +228,7 @@ export default function AdminPage() {
                   placeholder="Mahsulot tavsifi..."
                   value={editingProduct.description_uz}
                   onChange={e => setEditingProduct(p => ({ ...p, description_uz: e.target.value }))}
-                  className="w-full rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 py-2 focus:border-[#2563EB] focus:outline-none resize-none placeholder:text-slate-600"
+                  className="w-full rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 py-2 focus:border-[#DC2626] focus:outline-none resize-none placeholder:text-slate-600"
                 />
               </div>
             </div>
@@ -243,7 +243,7 @@ export default function AdminPage() {
                   placeholder={"Цвет: Чёрный\nТип: OLED\nГарантия: 12 мес."}
                   value={editingProduct.specs_ru}
                   onChange={e => setEditingProduct(p => ({ ...p, specs_ru: e.target.value }))}
-                  className="w-full rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 py-2 focus:border-[#2563EB] focus:outline-none resize-none placeholder:text-slate-600 font-mono"
+                  className="w-full rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 py-2 focus:border-[#DC2626] focus:outline-none resize-none placeholder:text-slate-600 font-mono"
                 />
               </div>
               <div className="space-y-1.5">
@@ -254,7 +254,7 @@ export default function AdminPage() {
                   placeholder={"Rang: Qora\nTuri: OLED\nKafolat: 12 oy"}
                   value={editingProduct.specs_uz}
                   onChange={e => setEditingProduct(p => ({ ...p, specs_uz: e.target.value }))}
-                  className="w-full rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 py-2 focus:border-[#2563EB] focus:outline-none resize-none placeholder:text-slate-600 font-mono"
+                  className="w-full rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 py-2 focus:border-[#DC2626] focus:outline-none resize-none placeholder:text-slate-600 font-mono"
                 />
               </div>
             </div>
@@ -268,7 +268,7 @@ export default function AdminPage() {
 
             <div className="flex gap-3 pt-1">
               <Button type="button" variant="outline" onClick={() => setIsProductModalOpen(false)} className="flex-1 border-white/20 text-slate-300 hover:bg-white/10 cursor-pointer">{t("cancel")}</Button>
-              <Button type="submit" className={cn("flex-1 text-white cursor-pointer transition-all", productSaved ? "bg-[#22C55E] hover:bg-[#16A34A]" : "bg-[#2563EB] hover:bg-[#1D4ED8]")}>
+              <Button type="submit" className={cn("flex-1 text-white cursor-pointer transition-all", productSaved ? "bg-[#22C55E] hover:bg-[#16A34A]" : "bg-[#DC2626] hover:bg-[#B91C1C]")}>
                 {productSaved ? <><CheckCircle2 className="w-4 h-4 mr-2" />{t("savedProduct")}</> : t("saveProduct")}
               </Button>
             </div>

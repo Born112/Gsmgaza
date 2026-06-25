@@ -34,7 +34,7 @@ export function AddToCartButton({ product, disabled }: Props) {
           ? "bg-[#22C55E] hover:bg-[#16A34A] text-white"
           : disabled
           ? "bg-white/10 text-slate-600 cursor-not-allowed"
-          : "bg-[#2563EB] hover:bg-[#1D4ED8] text-white shadow-lg shadow-[#2563EB]/20 hover:shadow-[#2563EB]/30"
+          : "bg-[#DC2626] hover:bg-[#B91C1C] text-white shadow-lg shadow-[#DC2626]/20 hover:shadow-[#DC2626]/30"
       )}
     >
       {added ? (

@@ -20,12 +20,12 @@ export function BrandGrid() {
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="flex items-end justify-between mb-8">
         <div>
-          <p className="text-[#3B82F6] text-sm font-medium uppercase tracking-widest mb-2">{t("popularBrands")}</p>
+          <p className="text-[#EF4444] text-sm font-medium uppercase tracking-widest mb-2">{t("popularBrands")}</p>
           <h2 className="font-heading text-3xl font-bold text-white">{t("fastBrandChoice")}</h2>
         </div>
         <Link
           href="/parts"
-          className="text-sm text-slate-400 hover:text-[#3B82F6] transition-colors duration-150 cursor-pointer hidden sm:block"
+          className="text-sm text-slate-400 hover:text-[#EF4444] transition-colors duration-150 cursor-pointer hidden sm:block"
         >
           {t("allGoods")}
         </Link>
@@ -36,7 +36,7 @@ export function BrandGrid() {
           <Link
             key={brand.id}
             href={`/parts?brand=${brand.id}`}
-            className="group flex flex-col items-center justify-center gap-3 p-5 bg-[#1E293B] border border-white/10 rounded-xl hover:border-[#2563EB]/50 hover:bg-[#1E293B] transition-all duration-200 cursor-pointer"
+            className="group flex flex-col items-center justify-center gap-3 p-5 bg-[#141414] border border-white/10 rounded-xl hover:border-[#DC2626]/50 hover:bg-[#141414] transition-all duration-200 cursor-pointer"
           >
             <div className="w-12 h-12 flex items-center justify-center">
               <svg

@@ -72,14 +72,14 @@ function SmartphonesContent() {
   const filtersJSX = (
     <div className="space-y-2">
       <Accordion multiple className="space-y-2">
-        <AccordionItem value="brands" className="border-white/10 bg-[#1E293B] rounded-xl px-4">
+        <AccordionItem value="brands" className="border-white/10 bg-[#141414] rounded-xl px-4">
           <AccordionTrigger className="text-sm font-semibold text-white hover:no-underline py-4">{t("brands")}</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-2 pb-4">
               {BRANDS.map(b => (
                 <label key={b.id} className="flex items-center gap-3 cursor-pointer group" onClick={() => toggleBrand(b.id)}>
                   <div className={cn("w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-all",
-                    selectedBrands.includes(b.id) ? "bg-[#2563EB] border-[#2563EB]" : "border-white/20 group-hover:border-white/40")}>
+                    selectedBrands.includes(b.id) ? "bg-[#DC2626] border-[#DC2626]" : "border-white/20 group-hover:border-white/40")}>
                     {selectedBrands.includes(b.id) && <div className="w-2 h-2 bg-white rounded-sm" />}
                   </div>
                   <span className="text-sm text-slate-400 group-hover:text-slate-200 transition-colors">{b.name}</span>
@@ -90,7 +90,7 @@ function SmartphonesContent() {
         </AccordionItem>
       </Accordion>
 
-      <div className="bg-[#1E293B] rounded-xl px-4">
+      <div className="bg-[#141414] rounded-xl px-4">
         <button type="button" onClick={() => setOpenPrice(p => !p)}
           className="w-full flex items-center justify-between py-4 text-sm font-semibold text-white cursor-pointer">
           {t("price")}
@@ -119,25 +119,25 @@ function SmartphonesContent() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
         <div>
-          <p className="text-[#3B82F6] text-sm font-medium uppercase tracking-widest mb-1">{t("catalog")}</p>
+          <p className="text-[#EF4444] text-sm font-medium uppercase tracking-widest mb-1">{t("catalog")}</p>
           <h1 className="font-heading text-3xl font-bold text-white">{t("phonesTitle")}</h1>
           <p className="text-slate-400 mt-1">{t("found")} {filtered.length} {t("products")}</p>
         </div>
         <Link href="/parts"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 hover:border-[#2563EB]/50 hover:text-[#3B82F6] transition-all cursor-pointer">
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 hover:border-[#DC2626]/50 hover:text-[#EF4444] transition-all cursor-pointer">
           {t("parts")} →
         </Link>
       </div>
 
       {/* Condition tabs */}
-      <div className="flex items-center gap-2 mb-7 p-1 bg-[#1E293B] border border-white/10 rounded-xl w-fit">
+      <div className="flex items-center gap-2 mb-7 p-1 bg-[#141414] border border-white/10 rounded-xl w-fit">
         {conditionTabs.map(tab => {
           const Icon = tab.icon;
           return (
             <button key={tab.id} onClick={() => setCondition(tab.id)}
               className={cn("flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer",
                 condition === tab.id
-                  ? "bg-[#2563EB] text-white shadow-lg shadow-[#2563EB]/20"
+                  ? "bg-[#DC2626] text-white shadow-lg shadow-[#DC2626]/20"
                   : "text-slate-400 hover:text-slate-200 hover:bg-white/5")}>
               <Icon className="w-4 h-4" />
               {t(tab.labelKey)}
@@ -159,14 +159,14 @@ function SmartphonesContent() {
               className="lg:hidden border-white/20 text-slate-300 hover:bg-white/10 cursor-pointer">
               <SlidersHorizontal className="w-4 h-4 mr-2" />
               {t("filters")} {activeBrandTags.length > 0 && (
-                <span className="ml-1 bg-[#2563EB] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                <span className="ml-1 bg-[#DC2626] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
                   {activeBrandTags.length}
                 </span>
               )}
             </Button>
 
             {activeBrandTags.map(tag => (
-              <span key={tag.id} className="flex items-center gap-1.5 px-3 py-1 bg-[#2563EB]/15 border border-[#2563EB]/30 rounded-full text-xs text-[#3B82F6]">
+              <span key={tag.id} className="flex items-center gap-1.5 px-3 py-1 bg-[#DC2626]/15 border border-[#DC2626]/30 rounded-full text-xs text-[#EF4444]">
                 {tag.label}
                 <button onClick={() => toggleBrand(tag.id)} className="cursor-pointer hover:text-white">
                   <X className="w-3 h-3" />
@@ -176,11 +176,11 @@ function SmartphonesContent() {
 
             <div className="ml-auto">
               <Select value={sort} onValueChange={(v: string | null) => setSort((v ?? "default") as SortKey)}>
-                <SelectTrigger className="w-52 bg-[#1E293B] border-white/10 text-slate-300 h-9 text-sm cursor-pointer">
+                <SelectTrigger className="w-52 bg-[#141414] border-white/10 text-slate-300 h-9 text-sm cursor-pointer">
                   <ArrowUpDown className="w-3.5 h-3.5 mr-2 text-slate-500" />
                   <span>{{ default: t("sortDefault"), price_asc: t("sortPriceAsc"), price_desc: t("sortPriceDes"), popular: t("sortPopular") }[sort]}</span>
                 </SelectTrigger>
-                <SelectContent className="bg-[#1E293B] border-white/10">
+                <SelectContent className="bg-[#141414] border-white/10">
                   <SelectItem value="default"    className="text-slate-300 cursor-pointer">{t("sortDefault")}</SelectItem>
                   <SelectItem value="price_asc"  className="text-slate-300 cursor-pointer">{t("sortPriceAsc")}</SelectItem>
                   <SelectItem value="price_desc" className="text-slate-300 cursor-pointer">{t("sortPriceDes")}</SelectItem>
@@ -194,7 +194,7 @@ function SmartphonesContent() {
             <div className="flex flex-col items-center py-20 text-center">
               <XCircle className="w-12 h-12 text-slate-600 mb-4" />
               <p className="text-slate-400 font-medium">{t("noProducts")}</p>
-              <button onClick={clearAll} className="mt-4 text-[#3B82F6] text-sm hover:underline cursor-pointer">{t("resetFilters")}</button>
+              <button onClick={clearAll} className="mt-4 text-[#EF4444] text-sm hover:underline cursor-pointer">{t("resetFilters")}</button>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -207,13 +207,13 @@ function SmartphonesContent() {
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0F172A] border-l border-white/10 overflow-y-auto p-5">
+          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0A0A0A] border-l border-white/10 overflow-y-auto p-5">
             <div className="flex items-center justify-between mb-5">
               <h2 className="font-heading font-semibold text-white">{t("filters")}</h2>
               <button onClick={() => setMobileOpen(false)} className="text-slate-400 hover:text-white cursor-pointer p-1"><X className="w-5 h-5" /></button>
             </div>
             {filtersJSX}
-            <Button onClick={() => setMobileOpen(false)} className="w-full mt-4 bg-[#2563EB] hover:bg-[#1D4ED8] cursor-pointer text-white">
+            <Button onClick={() => setMobileOpen(false)} className="w-full mt-4 bg-[#DC2626] hover:bg-[#B91C1C] cursor-pointer text-white">
               {t("applyFilters")} ({filtered.length})
             </Button>
           </div>
@@ -228,22 +228,22 @@ function SmartphoneCard({ product }: { product: Product }) {
   const isUsed = product.condition === "used";
   return (
     <Link href={`/smartphones/${product.id}`}
-      className="group bg-[#1E293B] border border-white/10 rounded-xl overflow-hidden hover:border-[#2563EB]/40 transition-all duration-200 flex flex-col cursor-pointer">
-      <div className="relative h-52 bg-[#334155] flex items-center justify-center overflow-hidden">
-        <div className="w-16 h-24 bg-[#2563EB]/10 rounded-2xl border-2 border-[#2563EB]/20 flex items-center justify-center">
-          <Smartphone className="w-8 h-8 text-[#334155]" />
+      className="group bg-[#141414] border border-white/10 rounded-xl overflow-hidden hover:border-[#DC2626]/40 transition-all duration-200 flex flex-col cursor-pointer">
+      <div className="relative h-52 bg-[#1C1C1C] flex items-center justify-center overflow-hidden">
+        <div className="w-16 h-24 bg-[#DC2626]/10 rounded-2xl border-2 border-[#DC2626]/20 flex items-center justify-center">
+          <Smartphone className="w-8 h-8 text-[#1C1C1C]" />
         </div>
         <span className={cn("absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-xs font-bold",
           isUsed ? "bg-[#F59E0B] text-black" : "bg-[#22C55E] text-black")}>
           {isUsed ? t("usedBadge") : t("newBadge")}
         </span>
         {product.popular && (
-          <span className="absolute top-3 right-3 px-2 py-0.5 bg-[#2563EB] text-white text-xs font-semibold rounded-full">{t("sortPopular")}</span>
+          <span className="absolute top-3 right-3 px-2 py-0.5 bg-[#DC2626] text-white text-xs font-semibold rounded-full">{t("sortPopular")}</span>
         )}
       </div>
       <div className="p-4 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-[10px] px-2 py-0.5 bg-[#2563EB]/10 text-[#3B82F6] rounded-full font-semibold">{product.brand}</span>
+          <span className="text-[10px] px-2 py-0.5 bg-[#DC2626]/10 text-[#EF4444] rounded-full font-semibold">{product.brand}</span>
           <span className="text-[10px] text-slate-600 font-mono ml-auto">{product.sku}</span>
         </div>
         <h3 className="text-sm font-medium text-slate-200 leading-snug mb-1 line-clamp-2 group-hover:text-white transition-colors">
@@ -262,7 +262,7 @@ function SmartphoneCard({ product }: { product: Product }) {
         </div>
         <div className="flex items-center justify-between">
           <span className="text-lg font-bold font-heading text-white">{formatPrice(product.price)}</span>
-          <span className="text-xs text-[#3B82F6] group-hover:text-[#60A5FA] transition-colors">{t("more")}</span>
+          <span className="text-xs text-[#EF4444] group-hover:text-[#F87171] transition-colors">{t("more")}</span>
         </div>
       </div>
     </Link>

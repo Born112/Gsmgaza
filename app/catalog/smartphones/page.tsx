@@ -52,7 +52,7 @@ function SmartphonesContent() {
   const FilterPanel = () => (
     <div className="space-y-3">
       {/* Brand filter */}
-      <div className="bg-[#1E293B] border border-white/10 rounded-xl p-4">
+      <div className="bg-[#141414] border border-white/10 rounded-xl p-4">
         <h3 className="text-sm font-semibold text-white mb-3">Бренды</h3>
         <div className="space-y-2">
           {BRANDS.map(b => (
@@ -60,7 +60,7 @@ function SmartphonesContent() {
               <div className={cn(
                 "w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-all duration-150",
                 selectedBrands.includes(b.id)
-                  ? "bg-[#2563EB] border-[#2563EB]"
+                  ? "bg-[#DC2626] border-[#DC2626]"
                   : "border-white/20 group-hover:border-white/40"
               )}>
                 {selectedBrands.includes(b.id) && <div className="w-2 h-2 bg-white rounded-sm" />}
@@ -72,7 +72,7 @@ function SmartphonesContent() {
       </div>
 
       {/* Price filter */}
-      <div className="bg-[#1E293B] border border-white/10 rounded-xl p-4">
+      <div className="bg-[#141414] border border-white/10 rounded-xl p-4">
         <h3 className="text-sm font-semibold text-white mb-4">Цена</h3>
         <Slider
           min={PRICE_MIN}
@@ -128,8 +128,8 @@ function SmartphonesContent() {
             className={cn(
               "flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer border",
               conditionFilter === tab.key
-                ? "bg-[#2563EB] border-[#2563EB] text-white"
-                : "border-white/10 text-slate-400 hover:text-white hover:border-white/25 bg-[#1E293B]"
+                ? "bg-[#DC2626] border-[#DC2626] text-white"
+                : "border-white/10 text-slate-400 hover:text-white hover:border-white/25 bg-[#141414]"
             )}
           >
             {tab.label}
@@ -163,7 +163,7 @@ function SmartphonesContent() {
             </Button>
 
             {selectedBrands.map(b => (
-              <span key={b} className="flex items-center gap-1.5 px-3 py-1 bg-[#2563EB]/15 border border-[#2563EB]/30 rounded-full text-xs text-[#3B82F6]">
+              <span key={b} className="flex items-center gap-1.5 px-3 py-1 bg-[#DC2626]/15 border border-[#DC2626]/30 rounded-full text-xs text-[#EF4444]">
                 {BRANDS.find(x => x.id === b)?.name ?? b}
                 <button onClick={() => toggleBrand(b)} className="cursor-pointer hover:text-white" aria-label={`Убрать ${b}`}>
                   <X className="w-3 h-3" />
@@ -173,11 +173,11 @@ function SmartphonesContent() {
 
             <div className="ml-auto">
               <Select value={sort} onValueChange={(v: string | null) => setSort((v ?? "default") as SortKey)}>
-                <SelectTrigger className="w-52 bg-[#1E293B] border-white/10 text-slate-300 h-9 text-sm cursor-pointer">
+                <SelectTrigger className="w-52 bg-[#141414] border-white/10 text-slate-300 h-9 text-sm cursor-pointer">
                   <ArrowUpDown className="w-3.5 h-3.5 mr-2 text-slate-500" />
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-[#1E293B] border-white/10">
+                <SelectContent className="bg-[#141414] border-white/10">
                   <SelectItem value="default"    className="text-slate-300 cursor-pointer">По умолчанию</SelectItem>
                   <SelectItem value="price_asc"  className="text-slate-300 cursor-pointer">Цена: по возрастанию</SelectItem>
                   <SelectItem value="price_desc" className="text-slate-300 cursor-pointer">Цена: по убыванию</SelectItem>
@@ -194,7 +194,7 @@ function SmartphonesContent() {
               <p className="text-slate-400 font-medium">Устройства не найдены</p>
               <button
                 onClick={() => { setConditionFilter("all"); setSelectedBrands([]); setPriceRange([PRICE_MIN, PRICE_MAX]); }}
-                className="mt-4 text-[#3B82F6] text-sm hover:underline cursor-pointer"
+                className="mt-4 text-[#EF4444] text-sm hover:underline cursor-pointer"
               >
                 Сбросить фильтры
               </button>
@@ -211,7 +211,7 @@ function SmartphonesContent() {
       {isMobileFilterOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setIsMobileFilterOpen(false)} />
-          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0F172A] border-l border-white/10 overflow-y-auto p-5">
+          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0A0A0A] border-l border-white/10 overflow-y-auto p-5">
             <div className="flex items-center justify-between mb-5">
               <h2 className="font-heading font-semibold text-white">Фильтры</h2>
               <button onClick={() => setIsMobileFilterOpen(false)} className="text-slate-400 hover:text-white cursor-pointer p-1">
@@ -219,7 +219,7 @@ function SmartphonesContent() {
               </button>
             </div>
             <FilterPanel />
-            <Button onClick={() => setIsMobileFilterOpen(false)} className="w-full mt-4 bg-[#2563EB] hover:bg-[#1D4ED8] cursor-pointer text-white">
+            <Button onClick={() => setIsMobileFilterOpen(false)} className="w-full mt-4 bg-[#DC2626] hover:bg-[#B91C1C] cursor-pointer text-white">
               Применить ({filtered.length})
             </Button>
           </div>
@@ -234,11 +234,11 @@ function SmartphoneCard({ product }: { product: Product }) {
   const [showCondition, setShowCondition] = useState(false);
 
   return (
-    <div className="group bg-[#1E293B] border border-white/10 rounded-xl overflow-hidden hover:border-[#2563EB]/40 transition-all duration-200 flex flex-col">
+    <div className="group bg-[#141414] border border-white/10 rounded-xl overflow-hidden hover:border-[#DC2626]/40 transition-all duration-200 flex flex-col">
       {/* Image */}
-      <div className="relative h-48 bg-[#334155] flex items-center justify-center overflow-hidden">
-        <div className="w-16 h-24 bg-[#2563EB]/10 rounded-xl border-2 border-[#2563EB]/20 flex items-center justify-center">
-          <ShoppingCart className="w-8 h-8 text-[#334155]" />
+      <div className="relative h-48 bg-[#1C1C1C] flex items-center justify-center overflow-hidden">
+        <div className="w-16 h-24 bg-[#DC2626]/10 rounded-xl border-2 border-[#DC2626]/20 flex items-center justify-center">
+          <ShoppingCart className="w-8 h-8 text-[#1C1C1C]" />
         </div>
 
         {/* Condition badge */}
@@ -251,12 +251,12 @@ function SmartphoneCard({ product }: { product: Product }) {
           {isUsed ? "Б/У" : "Новый"}
         </span>
 
-        <span className="absolute top-3 right-3 px-2 py-0.5 bg-[#1E293B]/80 backdrop-blur-sm text-slate-400 text-xs rounded-full border border-white/10">
+        <span className="absolute top-3 right-3 px-2 py-0.5 bg-[#141414]/80 backdrop-blur-sm text-slate-400 text-xs rounded-full border border-white/10">
           {product.brand}
         </span>
 
         {product.popular && (
-          <span className="absolute bottom-3 left-3 px-2 py-0.5 bg-[#2563EB] text-white text-xs font-semibold rounded-full">
+          <span className="absolute bottom-3 left-3 px-2 py-0.5 bg-[#DC2626] text-white text-xs font-semibold rounded-full">
             Хит
           </span>
         )}
@@ -279,7 +279,7 @@ function SmartphoneCard({ product }: { product: Product }) {
               Внешнее состояние {showCondition ? "▲" : "▼"}
             </button>
             {showCondition && (
-              <p className="mt-1.5 text-xs text-slate-400 bg-[#334155]/50 rounded-lg p-2.5 leading-relaxed">
+              <p className="mt-1.5 text-xs text-slate-400 bg-[#1C1C1C]/50 rounded-lg p-2.5 leading-relaxed">
                 {product.visualCondition}
               </p>
             )}
@@ -301,7 +301,7 @@ function SmartphoneCard({ product }: { product: Product }) {
           <Button
             size="sm"
             disabled={!product.inStock}
-            className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs h-8 px-3 cursor-pointer transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs h-8 px-3 cursor-pointer transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
             В корзину

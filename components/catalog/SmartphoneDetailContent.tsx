@@ -23,7 +23,7 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
   const gradeColor = (visualCondition?: string) => {
     if (!visualCondition) return "";
     if (visualCondition.includes("Grade A")) return "text-[#22C55E] bg-[#22C55E]/10";
-    if (visualCondition.includes("Grade B")) return "text-[#3B82F6] bg-[#3B82F6]/10";
+    if (visualCondition.includes("Grade B")) return "text-[#EF4444] bg-[#EF4444]/10";
     if (visualCondition.includes("Grade C")) return "text-[#F59E0B] bg-[#F59E0B]/10";
     return "";
   };
@@ -44,10 +44,10 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
 
       <div className="grid lg:grid-cols-2 gap-10">
         <div>
-          <div className="aspect-[3/4] max-h-[520px] bg-[#1E293B] border border-white/10 rounded-2xl flex items-center justify-center overflow-hidden relative">
+          <div className="aspect-[3/4] max-h-[520px] bg-[#141414] border border-white/10 rounded-2xl flex items-center justify-center overflow-hidden relative">
             <div className="flex flex-col items-center gap-3 text-slate-600">
-              <div className="w-20 h-32 bg-[#2563EB]/10 rounded-2xl border-2 border-[#2563EB]/20 flex items-center justify-center">
-                <Smartphone className="w-10 h-10 text-[#334155]" />
+              <div className="w-20 h-32 bg-[#DC2626]/10 rounded-2xl border-2 border-[#DC2626]/20 flex items-center justify-center">
+                <Smartphone className="w-10 h-10 text-[#1C1C1C]" />
               </div>
               <span className="text-xs">{product.sku}</span>
             </div>
@@ -62,7 +62,7 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
 
         <div className="flex flex-col">
           <div className="flex items-center gap-3 mb-3">
-            <span className="px-3 py-1 bg-[#2563EB]/15 border border-[#2563EB]/30 rounded-full text-xs font-semibold text-[#3B82F6]">
+            <span className="px-3 py-1 bg-[#DC2626]/15 border border-[#DC2626]/30 rounded-full text-xs font-semibold text-[#EF4444]">
               {product.brand}
             </span>
             {isUsed && product.visualCondition && (
@@ -103,7 +103,7 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
           {isUsed && (
             <div className="mt-4 p-3 bg-white/5 border border-white/10 rounded-xl">
               <div className="flex items-start gap-2">
-                <Shield className="w-4 h-4 text-[#3B82F6] shrink-0 mt-0.5" />
+                <Shield className="w-4 h-4 text-[#EF4444] shrink-0 mt-0.5" />
                 <p className="text-xs text-slate-400">{t("usedDiagnostic")}</p>
               </div>
             </div>
@@ -116,7 +116,7 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
               { icon: Battery, text: isUsed ? t("batteryUsed") : t("batteryNew") },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex flex-col items-center gap-1.5 p-3 bg-white/5 border border-white/10 rounded-xl text-center">
-                <Icon className="w-4 h-4 text-[#3B82F6]" />
+                <Icon className="w-4 h-4 text-[#EF4444]" />
                 <span className="text-[11px] text-slate-400 whitespace-pre-line leading-snug">{text}</span>
               </div>
             ))}
@@ -125,11 +125,11 @@ export function SmartphoneDetailContent({ product }: { product: Product }) {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mt-12">
-        <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6">
+        <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
           <h2 className="font-heading font-semibold text-white text-lg mb-3">{t("description")}</h2>
           <p className="text-sm text-slate-400 leading-relaxed">{product.description}</p>
         </div>
-        <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6">
+        <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
           <h2 className="font-heading font-semibold text-white text-lg mb-4">{t("specs")}</h2>
           <dl className="space-y-2.5">
             {Object.entries(product.specs).map(([key, value]) => (

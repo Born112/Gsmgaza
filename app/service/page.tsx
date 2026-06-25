@@ -40,7 +40,7 @@ export default function ServicePage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
       {/* Header */}
       <div className="mb-10">
-        <p className="text-[#3B82F6] text-sm font-medium uppercase tracking-widest mb-2">{t("serviceCenter")}</p>
+        <p className="text-[#EF4444] text-sm font-medium uppercase tracking-widest mb-2">{t("serviceCenter")}</p>
         <h1 className="font-heading text-4xl font-bold text-white">{t("repairSmartphones")}</h1>
         <p className="text-slate-400 mt-2 max-w-xl">{t("repairDesc")}</p>
       </div>
@@ -48,7 +48,7 @@ export default function ServicePage() {
       <div className="grid lg:grid-cols-5 gap-8">
         {/* Calculator */}
         <div className="lg:col-span-3">
-          <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6">
+          <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
             <h2 className="font-heading text-xl font-semibold text-white mb-6">{t("repairCalc")}</h2>
 
             {/* Step indicator */}
@@ -58,7 +58,7 @@ export default function ServicePage() {
                   <div className={cn(
                     "w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-all duration-200",
                     step > s.n ? "bg-[#22C55E] text-white" :
-                    step === s.n ? "bg-[#2563EB] text-white" :
+                    step === s.n ? "bg-[#DC2626] text-white" :
                     "bg-white/10 text-slate-500"
                   )}>
                     {step > s.n ? <CheckCircle2 className="w-4 h-4" /> : s.n}
@@ -86,7 +86,7 @@ export default function ServicePage() {
                       className={cn(
                         "px-4 py-3 rounded-xl border text-sm font-medium transition-all duration-150 cursor-pointer text-left",
                         brand === b
-                          ? "border-[#2563EB] bg-[#2563EB]/15 text-[#3B82F6]"
+                          ? "border-[#DC2626] bg-[#DC2626]/15 text-[#EF4444]"
                           : "border-white/10 text-slate-300 hover:border-white/30 hover:bg-white/5"
                       )}
                     >
@@ -102,7 +102,7 @@ export default function ServicePage() {
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-4">
                   <button onClick={() => setStep(1)} className="text-xs text-slate-500 hover:text-slate-300 cursor-pointer transition-colors">{t("back")}</button>
-                  <span className="text-sm text-slate-400">{t("stepBrand")}: <span className="text-[#3B82F6] font-medium">{brand}</span></span>
+                  <span className="text-sm text-slate-400">{t("stepBrand")}: <span className="text-[#EF4444] font-medium">{brand}</span></span>
                 </div>
                 <p className="text-sm text-slate-400 mb-3">{t("chooseModel")}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-72 overflow-y-auto pr-1">
@@ -113,7 +113,7 @@ export default function ServicePage() {
                       className={cn(
                         "px-4 py-2.5 rounded-lg border text-sm transition-all duration-150 cursor-pointer text-left",
                         model === m
-                          ? "border-[#2563EB] bg-[#2563EB]/15 text-[#3B82F6]"
+                          ? "border-[#DC2626] bg-[#DC2626]/15 text-[#EF4444]"
                           : "border-white/10 text-slate-300 hover:border-white/30 hover:bg-white/5"
                       )}
                     >
@@ -140,7 +140,7 @@ export default function ServicePage() {
                       className={cn(
                         "w-full flex items-center justify-between px-4 py-3 rounded-xl border text-sm transition-all duration-150 cursor-pointer",
                         issue === iss.id
-                          ? "border-[#2563EB] bg-[#2563EB]/15 text-[#3B82F6]"
+                          ? "border-[#DC2626] bg-[#DC2626]/15 text-[#EF4444]"
                           : "border-white/10 text-slate-300 hover:border-white/30 hover:bg-white/5"
                       )}
                     >
@@ -158,7 +158,7 @@ export default function ServicePage() {
                 <div className="flex items-center gap-2 mb-6">
                   <button onClick={() => setStep(3)} className="text-xs text-slate-500 hover:text-slate-300 cursor-pointer transition-colors">{t("back")}</button>
                 </div>
-                <div className="bg-gradient-to-br from-[#2563EB]/10 to-[#1E293B] border border-[#2563EB]/30 rounded-xl p-6 mb-4">
+                <div className="bg-gradient-to-br from-[#DC2626]/10 to-[#141414] border border-[#DC2626]/30 rounded-xl p-6 mb-4">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <div className="text-xs text-slate-500 mb-1">{brand} {model}</div>
@@ -169,7 +169,7 @@ export default function ServicePage() {
                   <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
                     <div>
                       <div className="text-xs text-slate-500 mb-1">{t("costFrom")}</div>
-                      <div className="text-3xl font-heading font-bold text-[#3B82F6]">
+                      <div className="text-3xl font-heading font-bold text-[#EF4444]">
                         {formatPrice(estimatedPrice)}
                       </div>
                     </div>
@@ -184,7 +184,7 @@ export default function ServicePage() {
                 <p className="text-xs text-slate-500">{t("exactPrice")}</p>
                 <button
                   onClick={() => setStep(1)}
-                  className="mt-3 text-sm text-[#3B82F6] hover:underline cursor-pointer"
+                  className="mt-3 text-sm text-[#EF4444] hover:underline cursor-pointer"
                 >
                   {t("recalculate")}
                 </button>
@@ -195,7 +195,7 @@ export default function ServicePage() {
 
         {/* Booking form */}
         <div className="lg:col-span-2" id="booking">
-          <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6 sticky top-20">
+          <div className="bg-[#141414] border border-white/10 rounded-2xl p-6 sticky top-20">
             <h2 className="font-heading text-xl font-semibold text-white mb-1">{t("bookRepair")}</h2>
             <p className="text-sm text-slate-400 mb-6">{t("bookingDesc")}</p>
 
@@ -206,7 +206,7 @@ export default function ServicePage() {
                 </div>
                 <h3 className="font-heading font-semibold text-white text-lg mb-2">{t("submittedTitle")}</h3>
                 <p className="text-sm text-slate-400">{t("submittedMsg")}</p>
-                <button onClick={() => setSubmitted(false)} className="mt-4 text-sm text-[#3B82F6] hover:underline cursor-pointer">
+                <button onClick={() => setSubmitted(false)} className="mt-4 text-sm text-[#EF4444] hover:underline cursor-pointer">
                   {t("newRequest")}
                 </button>
               </div>
@@ -222,7 +222,7 @@ export default function ServicePage() {
                       placeholder="Алексей Иванов"
                       value={formName}
                       onChange={e => setFormName(e.target.value)}
-                      className="pl-9 bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#2563EB]"
+                      className="pl-9 bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#DC2626]"
                     />
                   </div>
                 </div>
@@ -238,7 +238,7 @@ export default function ServicePage() {
                       placeholder="+7 (999) 123-45-67"
                       value={formPhone}
                       onChange={e => setFormPhone(e.target.value)}
-                      className="pl-9 bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#2563EB]"
+                      className="pl-9 bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#DC2626]"
                     />
                   </div>
                 </div>
@@ -254,7 +254,7 @@ export default function ServicePage() {
                         required
                         value={formDate}
                         onChange={e => setFormDate(e.target.value)}
-                        className="pl-9 bg-white/5 border-white/10 text-slate-200 focus:border-[#2563EB] cursor-pointer"
+                        className="pl-9 bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626] cursor-pointer"
                       />
                     </div>
                   </div>
@@ -265,26 +265,26 @@ export default function ServicePage() {
                       required
                       value={formTime}
                       onChange={e => setFormTime(e.target.value)}
-                      className="w-full h-10 rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 focus:border-[#2563EB] focus:outline-none cursor-pointer"
+                      className="w-full h-10 rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 focus:border-[#DC2626] focus:outline-none cursor-pointer"
                     >
                       <option value="">{t("chooseTime")}</option>
                       {["10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"].map(tm => (
-                        <option key={tm} value={tm} className="bg-[#1E293B]">{tm}</option>
+                        <option key={tm} value={tm} className="bg-[#141414]">{tm}</option>
                       ))}
                     </select>
                   </div>
                 </div>
 
                 {brand && model && issue && (
-                  <div className="flex items-center gap-2 p-3 bg-[#2563EB]/10 border border-[#2563EB]/20 rounded-lg">
-                    <Wrench className="w-4 h-4 text-[#3B82F6] shrink-0" />
+                  <div className="flex items-center gap-2 p-3 bg-[#DC2626]/10 border border-[#DC2626]/20 rounded-lg">
+                    <Wrench className="w-4 h-4 text-[#EF4444] shrink-0" />
                     <span className="text-xs text-slate-300">{brand} {model} — {selectedIssue?.name}</span>
                   </div>
                 )}
 
                 <Button
                   type="submit"
-                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold h-11 cursor-pointer transition-colors duration-200 shadow-lg shadow-[#2563EB]/20"
+                  className="w-full bg-[#DC2626] hover:bg-[#B91C1C] text-white font-semibold h-11 cursor-pointer transition-colors duration-200 shadow-lg shadow-[#DC2626]/20"
                 >
                   {t("bookBtn")}
                 </Button>

@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#0F172A] text-slate-100">
+      <body className="min-h-full flex flex-col bg-[#0A0A0A] text-slate-100">
         <LangProvider><CartProvider>
           <Header isLoggedIn={false} />
           <div className="flex-1">{children}</div>

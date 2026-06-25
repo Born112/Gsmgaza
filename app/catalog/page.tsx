@@ -90,7 +90,7 @@ function CatalogContent() {
   const FilterPanel = () => (
     <div className="space-y-2">
       <Accordion multiple className="space-y-2">
-        <AccordionItem value="brands" className="border-white/10 bg-[#1E293B] rounded-xl px-4">
+        <AccordionItem value="brands" className="border-white/10 bg-[#141414] rounded-xl px-4">
           <AccordionTrigger className="text-sm font-semibold text-white hover:no-underline py-4">
             Бренды
           </AccordionTrigger>
@@ -101,7 +101,7 @@ function CatalogContent() {
                   <div className={cn(
                     "w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-all duration-150",
                     selectedBrands.includes(b.id)
-                      ? "bg-[#2563EB] border-[#2563EB]"
+                      ? "bg-[#DC2626] border-[#DC2626]"
                       : "border-white/20 group-hover:border-white/40"
                   )}>
                     {selectedBrands.includes(b.id) && <div className="w-2 h-2 bg-white rounded-sm" />}
@@ -113,7 +113,7 @@ function CatalogContent() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="categories" className="border-white/10 bg-[#1E293B] rounded-xl px-4">
+        <AccordionItem value="categories" className="border-white/10 bg-[#141414] rounded-xl px-4">
           <AccordionTrigger className="text-sm font-semibold text-white hover:no-underline py-4">
             Категории
           </AccordionTrigger>
@@ -124,7 +124,7 @@ function CatalogContent() {
                   <div className={cn(
                     "w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-all duration-150",
                     selectedCats.includes(c.id)
-                      ? "bg-[#2563EB] border-[#2563EB]"
+                      ? "bg-[#DC2626] border-[#DC2626]"
                       : "border-white/20 group-hover:border-white/40"
                   )}>
                     {selectedCats.includes(c.id) && <div className="w-2 h-2 bg-white rounded-sm" />}
@@ -136,7 +136,7 @@ function CatalogContent() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="price" className="border-white/10 bg-[#1E293B] rounded-xl px-4">
+        <AccordionItem value="price" className="border-white/10 bg-[#141414] rounded-xl px-4">
           <AccordionTrigger className="text-sm font-semibold text-white hover:no-underline py-4">
             Цена
           </AccordionTrigger>
@@ -180,7 +180,7 @@ function CatalogContent() {
         </div>
         <Link
           href="/catalog/smartphones"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 hover:border-[#2563EB]/50 hover:text-[#3B82F6] transition-all duration-200 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300 hover:border-[#DC2626]/50 hover:text-[#EF4444] transition-all duration-200 cursor-pointer"
         >
           Смартфоны (Новые / Б/У) →
         </Link>
@@ -206,7 +206,7 @@ function CatalogContent() {
               <SlidersHorizontal className="w-4 h-4 mr-2" />
               Фильтры
               {activeTags.length > 0 && (
-                <span className="ml-1.5 w-5 h-5 bg-[#2563EB] text-white text-[10px] rounded-full flex items-center justify-center font-bold">
+                <span className="ml-1.5 w-5 h-5 bg-[#DC2626] text-white text-[10px] rounded-full flex items-center justify-center font-bold">
                   {activeTags.length}
                 </span>
               )}
@@ -216,7 +216,7 @@ function CatalogContent() {
             {activeTags.map(tag => (
               <span
                 key={`${tag.type}-${tag.id}`}
-                className="flex items-center gap-1.5 px-3 py-1 bg-[#2563EB]/15 border border-[#2563EB]/30 rounded-full text-xs text-[#3B82F6]"
+                className="flex items-center gap-1.5 px-3 py-1 bg-[#DC2626]/15 border border-[#DC2626]/30 rounded-full text-xs text-[#EF4444]"
               >
                 {tag.label}
                 <button
@@ -232,11 +232,11 @@ function CatalogContent() {
             {/* Sort */}
             <div className="ml-auto">
               <Select value={sort} onValueChange={(v: string | null) => setSort((v ?? "default") as SortKey)}>
-                <SelectTrigger className="w-52 bg-[#1E293B] border-white/10 text-slate-300 h-9 text-sm cursor-pointer">
+                <SelectTrigger className="w-52 bg-[#141414] border-white/10 text-slate-300 h-9 text-sm cursor-pointer">
                   <ArrowUpDown className="w-3.5 h-3.5 mr-2 text-slate-500" />
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-[#1E293B] border-white/10">
+                <SelectContent className="bg-[#141414] border-white/10">
                   <SelectItem value="default"    className="text-slate-300 cursor-pointer">По умолчанию</SelectItem>
                   <SelectItem value="price_asc"  className="text-slate-300 cursor-pointer">Цена: по возрастанию</SelectItem>
                   <SelectItem value="price_desc" className="text-slate-300 cursor-pointer">Цена: по убыванию</SelectItem>
@@ -252,7 +252,7 @@ function CatalogContent() {
               <XCircle className="w-12 h-12 text-slate-600 mb-4" />
               <p className="text-slate-400 text-lg font-medium">Товары не найдены</p>
               <p className="text-slate-600 text-sm mt-1">Попробуйте изменить фильтры или поисковый запрос</p>
-              <button onClick={clearAll} className="mt-4 text-[#3B82F6] text-sm hover:underline cursor-pointer">
+              <button onClick={clearAll} className="mt-4 text-[#EF4444] text-sm hover:underline cursor-pointer">
                 Сбросить всё
               </button>
             </div>
@@ -270,7 +270,7 @@ function CatalogContent() {
       {isMobileFilterOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setIsMobileFilterOpen(false)} />
-          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0F172A] border-l border-white/10 overflow-y-auto p-5">
+          <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0A0A0A] border-l border-white/10 overflow-y-auto p-5">
             <div className="flex items-center justify-between mb-5">
               <h2 className="font-heading font-semibold text-white">Фильтры</h2>
               <button onClick={() => setIsMobileFilterOpen(false)} className="text-slate-400 hover:text-white cursor-pointer p-1">
@@ -280,7 +280,7 @@ function CatalogContent() {
             <FilterPanel />
             <Button
               onClick={() => setIsMobileFilterOpen(false)}
-              className="w-full mt-4 bg-[#2563EB] hover:bg-[#1D4ED8] cursor-pointer text-white"
+              className="w-full mt-4 bg-[#DC2626] hover:bg-[#B91C1C] cursor-pointer text-white"
             >
               Применить ({filtered.length})
             </Button>
@@ -295,17 +295,17 @@ function CatalogContent() {
 
 function PartCard({ product }: { product: Product }) {
   return (
-    <div className="group bg-[#1E293B] border border-white/10 rounded-xl overflow-hidden hover:border-[#2563EB]/40 transition-all duration-200 flex flex-col">
-      <div className="relative h-44 bg-[#334155] flex items-center justify-center overflow-hidden">
-        <div className="w-16 h-16 bg-[#2563EB]/10 rounded-xl flex items-center justify-center">
-          <ShoppingCart className="w-8 h-8 text-[#334155]" />
+    <div className="group bg-[#141414] border border-white/10 rounded-xl overflow-hidden hover:border-[#DC2626]/40 transition-all duration-200 flex flex-col">
+      <div className="relative h-44 bg-[#1C1C1C] flex items-center justify-center overflow-hidden">
+        <div className="w-16 h-16 bg-[#DC2626]/10 rounded-xl flex items-center justify-center">
+          <ShoppingCart className="w-8 h-8 text-[#1C1C1C]" />
         </div>
         {product.popular && (
-          <span className="absolute top-3 left-3 px-2 py-0.5 bg-[#2563EB] text-white text-xs font-semibold rounded-full">
+          <span className="absolute top-3 left-3 px-2 py-0.5 bg-[#DC2626] text-white text-xs font-semibold rounded-full">
             Популярное
           </span>
         )}
-        <span className="absolute top-3 right-3 px-2 py-0.5 bg-[#1E293B]/80 backdrop-blur-sm text-slate-400 text-xs rounded-full border border-white/10">
+        <span className="absolute top-3 right-3 px-2 py-0.5 bg-[#141414]/80 backdrop-blur-sm text-slate-400 text-xs rounded-full border border-white/10">
           {product.brand}
         </span>
       </div>
@@ -332,7 +332,7 @@ function PartCard({ product }: { product: Product }) {
           <Button
             size="sm"
             disabled={!product.inStock}
-            className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs h-8 px-3 cursor-pointer transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs h-8 px-3 cursor-pointer transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
             В корзину

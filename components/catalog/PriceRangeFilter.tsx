@@ -58,7 +58,7 @@ export function PriceRangeFilter({ min, max, value, onChange }: Props) {
             onChange={e => setFromStr(e.target.value)}
             onBlur={commitFrom}
             onKeyDown={e => e.key === "Enter" && commitFrom()}
-            className="w-full h-8 px-2.5 rounded-lg bg-[#0F172A] border border-white/10 text-sm text-slate-200 focus:outline-none focus:border-[#2563EB] transition-colors"
+            className="w-full h-8 px-2.5 rounded-lg bg-[#0A0A0A] border border-white/10 text-sm text-slate-200 focus:outline-none focus:border-[#DC2626] transition-colors"
           />
         </div>
         <span className="text-slate-600 mt-5">—</span>
@@ -71,7 +71,7 @@ export function PriceRangeFilter({ min, max, value, onChange }: Props) {
             onChange={e => setToStr(e.target.value)}
             onBlur={commitTo}
             onKeyDown={e => e.key === "Enter" && commitTo()}
-            className="w-full h-8 px-2.5 rounded-lg bg-[#0F172A] border border-white/10 text-sm text-slate-200 focus:outline-none focus:border-[#2563EB] transition-colors"
+            className="w-full h-8 px-2.5 rounded-lg bg-[#0A0A0A] border border-white/10 text-sm text-slate-200 focus:outline-none focus:border-[#DC2626] transition-colors"
           />
         </div>
       </div>

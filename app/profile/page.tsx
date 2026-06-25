@@ -14,7 +14,7 @@ type AuthView = "login" | "profile";
 
 const STATUS_CONFIG = {
   "Обработан": { icon: Clock, color: "text-[#F59E0B]", bg: "bg-[#F59E0B]/10" },
-  "В пути": { icon: Truck, color: "text-[#3B82F6]", bg: "bg-[#3B82F6]/10" },
+  "В пути": { icon: Truck, color: "text-[#EF4444]", bg: "bg-[#EF4444]/10" },
   "Доставлен": { icon: CheckCircle2, color: "text-[#22C55E]", bg: "bg-[#22C55E]/10" },
 } as const;
 
@@ -47,14 +47,14 @@ export default function ProfilePage() {
       <div className="min-h-screen flex items-center justify-center px-4 pt-16">
         <div className="w-full max-w-sm">
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-[#2563EB]/15 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <User className="w-8 h-8 text-[#3B82F6]" />
+            <div className="w-16 h-16 bg-[#DC2626]/15 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <User className="w-8 h-8 text-[#EF4444]" />
             </div>
             <h1 className="font-heading text-2xl font-bold text-white mb-2">Войти в аккаунт</h1>
             <p className="text-sm text-slate-400">Управляйте заказами, адресами и профилем</p>
           </div>
 
-          <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6 space-y-3">
+          <div className="bg-[#141414] border border-white/10 rounded-2xl p-6 space-y-3">
             {/* Google */}
             <button
               onClick={() => setView("profile")}
@@ -83,7 +83,7 @@ export default function ProfilePage() {
                 <div className="w-full border-t border-white/10" />
               </div>
               <div className="relative flex justify-center">
-                <span className="px-3 bg-[#1E293B] text-xs text-slate-600">или</span>
+                <span className="px-3 bg-[#141414] text-xs text-slate-600">или</span>
               </div>
             </div>
 
@@ -92,15 +92,15 @@ export default function ProfilePage() {
                 type="email"
                 placeholder="Email"
                 required
-                className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#2563EB]"
+                className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#DC2626]"
               />
               <Input
                 type="password"
                 placeholder="Пароль"
                 required
-                className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#2563EB]"
+                className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus:border-[#DC2626]"
               />
-              <Button type="submit" className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white cursor-pointer">
+              <Button type="submit" className="w-full bg-[#DC2626] hover:bg-[#B91C1C] text-white cursor-pointer">
                 Войти
               </Button>
             </form>
@@ -108,7 +108,7 @@ export default function ProfilePage() {
 
           <p className="text-center text-xs text-slate-600 mt-4">
             Входя, вы соглашаетесь с{" "}
-            <a href="#" className="text-[#3B82F6] hover:underline cursor-pointer">политикой конфиденциальности</a>
+            <a href="#" className="text-[#EF4444] hover:underline cursor-pointer">политикой конфиденциальности</a>
           </p>
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function ProfilePage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
       {/* Profile header */}
       <div className="flex items-center gap-4 mb-8">
-        <div className="w-16 h-16 bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] rounded-2xl flex items-center justify-center text-white font-heading font-bold text-2xl">
+        <div className="w-16 h-16 bg-gradient-to-br from-[#DC2626] to-[#B91C1C] rounded-2xl flex items-center justify-center text-white font-heading font-bold text-2xl">
           {name.charAt(0)}
         </div>
         <div>
@@ -135,16 +135,16 @@ export default function ProfilePage() {
       </div>
 
       <Tabs defaultValue="data" className="space-y-6">
-        <TabsList className="bg-[#1E293B] border border-white/10 p-1 rounded-xl">
-          <TabsTrigger value="data" className="data-[state=active]:bg-[#2563EB] data-[state=active]:text-white text-slate-400 rounded-lg cursor-pointer transition-all">
+        <TabsList className="bg-[#141414] border border-white/10 p-1 rounded-xl">
+          <TabsTrigger value="data" className="data-[state=active]:bg-[#DC2626] data-[state=active]:text-white text-slate-400 rounded-lg cursor-pointer transition-all">
             <User className="w-4 h-4 mr-2" />
             Данные
           </TabsTrigger>
-          <TabsTrigger value="addresses" className="data-[state=active]:bg-[#2563EB] data-[state=active]:text-white text-slate-400 rounded-lg cursor-pointer transition-all">
+          <TabsTrigger value="addresses" className="data-[state=active]:bg-[#DC2626] data-[state=active]:text-white text-slate-400 rounded-lg cursor-pointer transition-all">
             <MapPin className="w-4 h-4 mr-2" />
             Адреса
           </TabsTrigger>
-          <TabsTrigger value="orders" className="data-[state=active]:bg-[#2563EB] data-[state=active]:text-white text-slate-400 rounded-lg cursor-pointer transition-all">
+          <TabsTrigger value="orders" className="data-[state=active]:bg-[#DC2626] data-[state=active]:text-white text-slate-400 rounded-lg cursor-pointer transition-all">
             <ShoppingBag className="w-4 h-4 mr-2" />
             Заказы
           </TabsTrigger>
@@ -152,12 +152,12 @@ export default function ProfilePage() {
 
         {/* Tab: Data */}
         <TabsContent value="data">
-          <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6">
+          <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
             <h2 className="font-heading font-semibold text-white text-lg mb-5">Личные данные</h2>
             <form onSubmit={e => { e.preventDefault(); setProfileSaved(true); setTimeout(() => setProfileSaved(false), 2000); }} className="space-y-4">
               <div className="space-y-1.5">
                 <label className="text-sm text-slate-400" htmlFor="prof-name">Имя</label>
-                <Input id="prof-name" value={name} onChange={e => setName(e.target.value)} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#2563EB]" />
+                <Input id="prof-name" value={name} onChange={e => setName(e.target.value)} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626]" />
               </div>
               <div className="space-y-1.5">
                 <label className="text-sm text-slate-400" htmlFor="prof-gender">Пол</label>
@@ -165,18 +165,18 @@ export default function ProfilePage() {
                   id="prof-gender"
                   value={gender}
                   onChange={e => setGender(e.target.value)}
-                  className="w-full h-10 rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 focus:border-[#2563EB] focus:outline-none cursor-pointer"
+                  className="w-full h-10 rounded-md bg-white/5 border border-white/10 text-slate-200 text-sm px-3 focus:border-[#DC2626] focus:outline-none cursor-pointer"
                 >
                   {["Мужской", "Женский", "Не указывать"].map(g => (
-                    <option key={g} value={g} className="bg-[#1E293B]">{g}</option>
+                    <option key={g} value={g} className="bg-[#141414]">{g}</option>
                   ))}
                 </select>
               </div>
               <div className="space-y-1.5">
                 <label className="text-sm text-slate-400" htmlFor="prof-age">Возраст</label>
-                <Input id="prof-age" type="number" min="14" max="120" value={age} onChange={e => setAge(e.target.value)} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#2563EB] w-32" />
+                <Input id="prof-age" type="number" min="14" max="120" value={age} onChange={e => setAge(e.target.value)} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626] w-32" />
               </div>
-              <Button type="submit" className={cn("bg-[#2563EB] hover:bg-[#1D4ED8] text-white cursor-pointer transition-all", profileSaved && "bg-[#22C55E] hover:bg-[#16A34A]")}>
+              <Button type="submit" className={cn("bg-[#DC2626] hover:bg-[#B91C1C] text-white cursor-pointer transition-all", profileSaved && "bg-[#22C55E] hover:bg-[#16A34A]")}>
                 {profileSaved ? <><CheckCircle2 className="w-4 h-4 mr-2" />Сохранено</> : "Сохранить изменения"}
               </Button>
             </form>
@@ -185,13 +185,13 @@ export default function ProfilePage() {
 
         {/* Tab: Addresses */}
         <TabsContent value="addresses">
-          <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6">
+          <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
             <div className="flex items-center justify-between mb-5">
               <h2 className="font-heading font-semibold text-white text-lg">Адреса доставки</h2>
               <Button
                 size="sm"
                 onClick={() => setIsAddressModalOpen(true)}
-                className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white cursor-pointer"
+                className="bg-[#DC2626] hover:bg-[#B91C1C] text-white cursor-pointer"
               >
                 <Plus className="w-4 h-4 mr-1.5" />
                 Добавить адрес
@@ -200,8 +200,8 @@ export default function ProfilePage() {
             <div className="space-y-3">
               {addresses.map(addr => (
                 <div key={addr.id} className="flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-xl group hover:border-white/20 transition-colors">
-                  <div className="w-9 h-9 bg-[#2563EB]/15 rounded-lg flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4 text-[#3B82F6]" />
+                  <div className="w-9 h-9 bg-[#DC2626]/15 rounded-lg flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-[#EF4444]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-sm font-medium text-white">{addr.label}</div>
@@ -225,7 +225,7 @@ export default function ProfilePage() {
 
         {/* Tab: Orders */}
         <TabsContent value="orders">
-          <div className="bg-[#1E293B] border border-white/10 rounded-2xl p-6">
+          <div className="bg-[#141414] border border-white/10 rounded-2xl p-6">
             <h2 className="font-heading font-semibold text-white text-lg mb-5">История заказов</h2>
             <div className="space-y-3">
               {ORDERS.map(order => {
@@ -256,22 +256,22 @@ export default function ProfilePage() {
 
       {/* Address modal */}
       <Dialog open={isAddressModalOpen} onOpenChange={setIsAddressModalOpen}>
-        <DialogContent className="bg-[#1E293B] border-white/10 text-white max-w-md">
+        <DialogContent className="bg-[#141414] border-white/10 text-white max-w-md">
           <DialogHeader>
             <DialogTitle className="font-heading text-white">Новый адрес доставки</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 pt-2">
             <div className="space-y-1.5">
               <label className="text-sm text-slate-400" htmlFor="addr-label">Название (Дом, Работа...)</label>
-              <Input id="addr-label" placeholder="Например: Дом" value={newAddressLabel} onChange={e => setNewAddressLabel(e.target.value)} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#2563EB]" />
+              <Input id="addr-label" placeholder="Например: Дом" value={newAddressLabel} onChange={e => setNewAddressLabel(e.target.value)} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626]" />
             </div>
             <div className="space-y-1.5">
               <label className="text-sm text-slate-400" htmlFor="addr-full">Полный адрес</label>
-              <Input id="addr-full" placeholder="г. Москва, ул. Пушкина, д. 1, кв. 1" value={newAddress} onChange={e => setNewAddress(e.target.value)} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#2563EB]" />
+              <Input id="addr-full" placeholder="г. Москва, ул. Пушкина, д. 1, кв. 1" value={newAddress} onChange={e => setNewAddress(e.target.value)} className="bg-white/5 border-white/10 text-slate-200 focus:border-[#DC2626]" />
             </div>
             <div className="flex gap-3 pt-2">
               <Button variant="outline" onClick={() => setIsAddressModalOpen(false)} className="flex-1 border-white/20 text-slate-300 hover:bg-white/10 cursor-pointer">Отмена</Button>
-              <Button onClick={handleAddAddress} className="flex-1 bg-[#2563EB] hover:bg-[#1D4ED8] text-white cursor-pointer">Сохранить</Button>
+              <Button onClick={handleAddAddress} className="flex-1 bg-[#DC2626] hover:bg-[#B91C1C] text-white cursor-pointer">Сохранить</Button>
             </div>
           </div>
         </DialogContent>
